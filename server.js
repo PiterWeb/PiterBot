@@ -48,8 +48,7 @@ client.on("message", msg => {
     else {
         switch (msg.content) {
             case prefix+"hola":
-                msg.channel.send('Que tal estás ' + msg.author.username + "?");
-                channel.send(exampleEmbed)
+                msg.channel.send(exampleEmbed)
                 break;
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
