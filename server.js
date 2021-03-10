@@ -43,7 +43,7 @@ client.on("message", msg => {
     else {
         switch (msg.content) {
             case prefix+"hola":
-                channel.send(exampleEmbed)
+                msg.channel.send(exampleEmbed)
                 break;
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
