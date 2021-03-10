@@ -36,7 +36,7 @@ client.on("message", msg => {
         switch (msg.content) {
             case prefix+"hola":
                 msg.channel.send('Que tal estás ' + msg.author.username + "?");
-		        webhook.send('Webhook test', {
+		        msg.webhook.send('Webhook test', {
 			    username: 'PiterBot',
 			    avatarURL: 'https://i.imgur.com/VkqovzP.jpeg',
 			    embeds: [embed],
