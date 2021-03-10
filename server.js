@@ -9,7 +9,7 @@ client.on("ready", () => {
 
 //Embeds 
 
-const exampleEmbed = new Discord.MessageEmbed()
+const Hola = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('Que tal estás ' + msg.author.username + "?")
 	.setURL('')
@@ -38,14 +38,15 @@ client.on("message", msg => {
     else {
         switch (msg.content) {
             case prefix+"hola":
-                msg.channel.send(exampleEmbed);
+                channel.send(Hola);
                 break;
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
                 break;
             case prefix+"link":
                 msg.channel.send('https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647')
-        }
+                break;
+            }
     }
     
 });
