@@ -27,6 +27,22 @@ client.on("message", msg => {
         switch (msg.content) {
             case prefix+"hola":
                 msg.channel.send('Que tal estás ' + msg.author.username + "?");
+                msg.channel.send(toString(
+                    {
+                    "content": null,
+                    "embeds": [
+                      {
+                        "title": "CONTENT",
+                        "color": null,
+                        "author": {
+                          "name": "PiterBot",
+                          "icon_url": "https://cdn.discordapp.com/avatars/819229238737240094/485e339fbebef52a2e4f007cec90bdc1.png"
+                        }
+                      }
+                    ]
+                    }
+                  ));
+                  
                 break;
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
