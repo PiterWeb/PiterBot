@@ -11,15 +11,8 @@ client.on("ready", () => {
 
 const Hola = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.setTitle('Que tal estás ' + msg.author.username + "?")
-	.setURL('')
-	.setAuthor('PiterBot', '', 'https://discord.js.org')
-	.setDescription('Some description here')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-	.addFields('')
-	.addField('', true)
-	.setImage('')
-	.setTimestamp('')
+	.setTitle('Que tal estás ?")
+	.setAuthor('PiterBot', 'https://i.imgur.com/VkqovzP.jpg')
 	.setFooter('Aquí estuvo Botijo-Chan');
 
 //Bot
