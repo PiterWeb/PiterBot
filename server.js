@@ -35,11 +35,6 @@ client.on("message", msg => {
             msg.reply("Calla tonto");
         }
     }
-    else if (msg.author == 440967791462318091) {
-        if (msg.content == prefix+"link"){
-            msg.channel.send('https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647')
-        }
-    }
     else {
         switch (msg.content) {
             case prefix+"hola":
@@ -48,6 +43,8 @@ client.on("message", msg => {
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
                 break;
+            case prefix+"link":
+                msg.channel.send('https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647')
         }
     }
     
