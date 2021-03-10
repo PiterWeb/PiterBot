@@ -9,11 +9,23 @@ client.on("ready", () => {
 
 //Embeds 
 
-const Hola = new Discord.MessageEmbed()
+const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.setTitle('Que tal estás ?')
-	.setAuthor('PiterBot', 'https://i.imgur.com/VkqovzP.jpg')
-	.setFooter('Aquí estuvo Botijo-Chan');
+	.setTitle('Some title')
+	.setURL('https://discord.js.org/')
+	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	.setDescription('Some description here')
+	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+	.addFields(
+		{ name: 'Regular field title', value: 'Some value here' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+	)
+	.addField('Inline field title', 'Some value here', true)
+	.setImage('https://i.imgur.com/wSTFkRM.png')
+	.setTimestamp()
+	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
 //Bot
 
@@ -31,15 +43,14 @@ client.on("message", msg => {
     else {
         switch (msg.content) {
             case prefix+"hola":
-                channel.send(Hola);
+                channel.send(exampleEmbed)
                 break;
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
                 break;
             case prefix+"link":
                 msg.channel.send('https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647')
-                break;
-            }
+        }
     }
     
 });
