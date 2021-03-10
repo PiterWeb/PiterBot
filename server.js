@@ -16,10 +16,10 @@ const Hola = new Discord.MessageEmbed()
 	.setAuthor('PiterBot', '', 'https://discord.js.org')
 	.setDescription('Some description here')
 	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-	.addFields()
+	.addFields('')
 	.addField('', true)
 	.setImage('')
-	.setTimestamp()
+	.setTimestamp('')
 	.setFooter('Aquí estuvo Botijo-Chan');
 
 //Bot
