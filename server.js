@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-
 var prefix = "p/"
 
 client.on("ready", () => {
@@ -10,9 +9,23 @@ client.on("ready", () => {
 
 //Embeds 
 
-const embed = new Discord.MessageEmbed()
-	.setTitle('Some Title')
-	.setColor('#0099ff');
+const exampleEmbed = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('Some title')
+	.setURL('https://discord.js.org/')
+	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	.setDescription('Some description here')
+	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+	.addFields(
+		{ name: 'Regular field title', value: 'Some value here' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+	)
+	.addField('Inline field title', 'Some value here', true)
+	.setImage('https://i.imgur.com/wSTFkRM.png')
+	.setTimestamp()
+	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
 //Bot
 
@@ -36,11 +49,7 @@ client.on("message", msg => {
         switch (msg.content) {
             case prefix+"hola":
                 msg.channel.send('Que tal estás ' + msg.author.username + "?");
-		        msg.webhook.send('Webhook test', {
-			    username: 'PiterBot',
-			    avatarURL: 'https://i.imgur.com/VkqovzP.jpeg',
-			    embeds: [embed],
-		        });
+                channel.send(exampleEmbed)
                 break;
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
