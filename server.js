@@ -11,9 +11,9 @@ client.on("ready", () => {
 
 const exampleEmbed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.setTitle('Some title')
+	.setTitle('¿Hola que tal estás?')
 	.setURL('https://discord.js.org/')
-	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	.setAuthor('PiterBot', 'https://i.imgur.com/VkqovzP.jpg', 'https://discord.js.org')
 	.setDescription('Some description here')
 	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
 	.addFields(
