@@ -11,7 +11,7 @@ client.on("ready", () => {
 
 const Hola = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.setTitle('Que tal estás ?")
+	.setTitle('Que tal estás ?')
 	.setAuthor('PiterBot', 'https://i.imgur.com/VkqovzP.jpg')
 	.setFooter('Aquí estuvo Botijo-Chan');
 
