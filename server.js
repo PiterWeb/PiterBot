@@ -31,7 +31,7 @@ client.on("message", msg => {
         switch (msg.content) {
             case prefix+"hola":
                 var user = msg.author.username;
-                exampleEmb.setTitle('Hola, ¿ que tal'+ user + '?')
+                exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
                 msg.channel.send(exampleEmb)
                 break;
             case prefix+"cerdo":
