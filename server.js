@@ -52,7 +52,7 @@ client.on("message", msg => {
                 msg.channel.send(exampleEmb);
                 break;
             case prefix+"botijo-chan":
-                botijochanEmb.fields = null;
+                botijochanEmb.fields = [];
                 botijochanEmb.setTitle('¿Que necesitas '+user+'-Kun?');
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setThumbnail(botijochanurl);
