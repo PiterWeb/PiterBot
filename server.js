@@ -63,6 +63,7 @@ client.on("message", msg => {
                 );
                 msg.channel.send(botijochanEmb)
                 break;
+                //test de compatibilidad con botijo-chan
             case prefix+"link":
                 var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
                 exampleEmb.setTitle(user+' este es mi enlace de Invitación UwU');
