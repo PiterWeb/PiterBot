@@ -47,7 +47,7 @@ client.on("message", msg => {
                 exampleEmb.setTitle('¿Que necesitas '+user+'-Kun?');
                 exampleEmb.setAuthor(botijochanname, botijochanurl);
                 exampleEmb.setDescription('Aquí tienes mis comandos para cuando me necesites');
-                exampleEmb.addFieldS(
+                exampleEmb.addFields(
                     { name: 'Regular field title', value: 'Comandos' },
                     { name: 'Inline field title', value: 'bc/hola', inline: true },
                     { name: 'Inline field title', value: 'bc/awua', inline: true }
