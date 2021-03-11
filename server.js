@@ -11,7 +11,7 @@ client.on("ready", () => {
 
 const exampleEmb = new Discord.MessageEmbed()
 	.setColor('#BB391D')
-	.setAuthor('PiterBot', 'https://i.imgur.com/VkqovzP.jpg', 'https://discord.js.org')
+	.setAuthor('PiterBot', 'https://i.imgur.com/VkqovzP.jpg')
 	.setFooter('Aquí estuvo Botijo-Chan');
 
 //Bot
@@ -39,10 +39,15 @@ client.on("message", msg => {
                 msg.channel.send(exampleEmb)
                 break;
             case prefix+"cerdo":
-                msg.channel.send('Cala can');
+                exampleEmb.setTitle('Cala can')
+                msg.channel.send(exampleEmb);
                 break;
             case prefix+"link":
-                msg.channel.send('https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647')
+                var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
+                exampleEmb.setTitle(user+' este es mi enlace de Invitación UwU');
+                exampleEmb.setDescription(link)
+                msg.channel.send(exampleEmb)
+                break;
         }
     }
     
