@@ -8,16 +8,21 @@ client.on("ready", () => {
     console.log("Bot Listo")
 });
 
-//Embeds 
+//Embeds//
+
+
+//Embed Simple
 
 const exampleEmb = new Discord.MessageEmbed()
 	.setColor('#BB391D')
 	.setFooter('Aquí estuvo Botijo-Chan');
 
+//Embed Botijo-Chan
+
 const botijochanEmb = new Discord.MessageEmbed()
     .setColor('#BB391D')
 
-//Bot
+//Bot//
 
 
 client.on("message", msg => {
@@ -65,6 +70,6 @@ client.on("message", msg => {
         }  
 });
 
-//Login
+//Login//
 
 client.login(process.env.token)
