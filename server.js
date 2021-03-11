@@ -51,9 +51,8 @@ client.on("message", msg => {
                 botijochanEmb.setAuthor(botijochanname, botijochanurl);
                 botijochanEmb.setDescription('Aquí tienes mis comandos para cuando me necesites');
                 botijochanEmb.addFields(
-                    { name: 'Regular field title', value: 'Comandos' },
-                    { name: 'Inline field title', value: 'bc/hola', inline: true },
-                    { name: 'Inline field title', value: 'bc/awua', inline: true }
+                    { name: 'Un saludito', value: 'bc/hola', inline: true },
+                    { name: 'Si tienes sed', value: 'bc/awua', inline: true }
                 );
                 msg.channel.send(botijochanEmb)
                 break;
