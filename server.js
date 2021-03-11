@@ -16,10 +16,15 @@ const exampleEmb = new Discord.MessageEmbed()
 
 //Bot
 
+
 client.on("message", msg => {
+
+    var user = msg.author.username;
+
     if(msg.author.bot || !msg.guild) {
       return;
     }
+    
     else if (msg.author == 551114700474286101 ){
         var numero = 1;
         var elegido = Math.floor(Math.random() * 101);
@@ -30,7 +35,6 @@ client.on("message", msg => {
     else {
         switch (msg.content) {
             case prefix+"hola":
-                var user = msg.author.username;
                 exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
                 msg.channel.send(exampleEmb)
                 break;
