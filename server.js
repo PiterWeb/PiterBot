@@ -55,6 +55,7 @@ client.on("message", msg => {
                     { name: 'Inline field title', value: 'bc/hola', inline: true },
                     { name: 'Inline field title', value: 'bc/awua', inline: true }
                 );
+                msg.channel.send(botijochanEmb)
                 break;
             case prefix+"link":
                 var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
