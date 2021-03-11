@@ -14,6 +14,9 @@ const exampleEmb = new Discord.MessageEmbed()
 	.setColor('#BB391D')
 	.setFooter('Aquí estuvo Botijo-Chan');
 
+const botijochanEmb = new Discord.MessageEmbed()
+    .setColor('#BB391D')
+
 //Bot
 
 
@@ -44,10 +47,10 @@ client.on("message", msg => {
                 msg.channel.send(exampleEmb);
                 break;
             case prefix+"botijo-chan":
-                exampleEmb.setTitle('¿Que necesitas '+user+'-Kun?');
-                exampleEmb.setAuthor(botijochanname, botijochanurl);
-                exampleEmb.setDescription('Aquí tienes mis comandos para cuando me necesites');
-                exampleEmb.addFields(
+                botijochanEmb.setTitle('¿Que necesitas '+user+'-Kun?');
+                botijochanEmb.setAuthor(botijochanname, botijochanurl);
+                botijochanEmb.setDescription('Aquí tienes mis comandos para cuando me necesites');
+                botijochanEmb.addFields(
                     { name: 'Regular field title', value: 'Comandos' },
                     { name: 'Inline field title', value: 'bc/hola', inline: true },
                     { name: 'Inline field title', value: 'bc/awua', inline: true }
