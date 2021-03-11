@@ -9,9 +9,8 @@ client.on("ready", () => {
 
 //Embeds 
 
-const hola = new Discord.MessageEmbed()
+const exampleEmb = new Discord.MessageEmbed()
 	.setColor('#BB391D')
-	.setTitle('¿Hola, que tal?')
 	.setAuthor('PiterBot', 'https://i.imgur.com/VkqovzP.jpg', 'https://discord.js.org')
 	.setFooter('Aquí estuvo Botijo-Chan');
 
@@ -31,10 +30,9 @@ client.on("message", msg => {
     else {
         switch (msg.content) {
             case prefix+"hola":
-                var user = msg.author.id;
-                print(user);
-                hola.add_field(name="Username:", value="{msg.author.username}", inline=True)
-                msg.channel.send(hola)
+                var user = msg.author.username;
+                exampleEmb.setTitle('Hola, ¿ que tal'+ user + '?')
+                msg.channel.send(exampleEmb)
                 break;
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
