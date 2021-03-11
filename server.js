@@ -31,9 +31,9 @@ client.on("message", msg => {
     else {
         switch (msg.content) {
             case prefix+"hola":
-                var user = message.author.id;
+                var user = msg.author.id;
                 print(user);
-                hola.add_field(name="Username:", value="{message.author}", inline=True)
+                hola.add_field(name="Username:", value="{msg.author.username}", inline=True)
                 msg.channel.send(hola)
                 break;
             case prefix+"cerdo":
