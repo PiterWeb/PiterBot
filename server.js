@@ -9,23 +9,11 @@ client.on("ready", () => {
 
 //Embeds 
 
-const exampleEmbed = new Discord.MessageEmbed()
-	.setColor('#0099ff')
-	.setTitle('¿Hola que tal estás?')
-	.setURL('https://discord.js.org/')
+const hola = new Discord.MessageEmbed()
+	.setColor('#BB391D')
+	.setTitle('¿Hola, que tal'+message.author.username+'?')
 	.setAuthor('PiterBot', 'https://i.imgur.com/VkqovzP.jpg', 'https://discord.js.org')
-	.setDescription('Some description here')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-	.addFields(
-		{ name: 'Regular field title', value: 'Some value here' },
-		{ name: '\u200B', value: '\u200B' },
-		{ name: 'Inline field title', value: 'Some value here', inline: true },
-		{ name: 'Inline field title', value: 'Some value here', inline: true },
-	)
-	.addField('Inline field title', 'Some value here', true)
-	.setImage('https://i.imgur.com/wSTFkRM.png')
-	.setTimestamp()
-	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+	.setFooter('Aquí estuvo Botijo-Chan');
 
 //Bot
 
@@ -43,7 +31,7 @@ client.on("message", msg => {
     else {
         switch (msg.content) {
             case prefix+"hola":
-                msg.channel.send(exampleEmbed)
+                msg.channel.send(hola)
                 break;
             case prefix+"cerdo":
                 msg.channel.send('Cala can');
