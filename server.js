@@ -20,7 +20,7 @@ const exampleEmb = new Discord.MessageEmbed()
 //Embed Botijo-Chan
 
 const botijochanEmb = new Discord.MessageEmbed()
-    .setColor('#BB391D')
+    .setColor('#BB861D')
 
 //Bot//
 
