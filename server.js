@@ -32,7 +32,6 @@ client.on("message", msg => {
             msg.reply("Calla tonto");
         }
     }
-    else {
         switch (msg.content) {
             case prefix+"hola":
                 exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
@@ -48,9 +47,7 @@ client.on("message", msg => {
                 exampleEmb.setDescription(link)
                 msg.channel.send(exampleEmb)
                 break;
-        }
-    }
-    
+        }  
 });
 
 //Login
