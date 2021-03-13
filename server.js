@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+import joinImages from 'join-images';
+
 
 var prefix = "p/"
 var prefixbc = "bc/"
@@ -70,21 +72,23 @@ client.on("message", msg => {
                 //test de compatibilidad con botijo-chan
             case prefixbc+"botijo-chan":
                 var porcentajecomp = Math.floor(Math.random() * 101);
+                joinImages([botijochanimg2, 'https://recursosdgitales.com/wp-content/uploads/2020/07/corazon-png.png',icon ]).then((img) => {
+                    // Save image as file
+                    img.toFile('love.png');
+                  });
                 botijochanEmb.fields = [];
                 botijochanEmb.image = []
                 botijochanEmb.setTitle('Test de Compatibilidad');
                 botijochanEmb.setAuthor(botijochanname);
-                botijochanEmb.setImage(botijochanimg2);
-                botijochanEmb.setImage('https://recursosdgitales.com/wp-content/uploads/2020/07/corazon-png.png');
-                botijochanEmb.setImage(icon);
+                botijochanEmb.setImage('love.png');
                 if(porcentajecomp<25){
-                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, puede que no llegen a ser amigos');
+                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
                 } else if (porcentajecomp<50 || porcentajecomp>25){
-                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, podrian llegar a ser amigos');
+                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, podrian llegar a ser amigos');
                 } else if (porcentajecomp>50 || porcentajecomp<75) {
-                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, llegarán a ser muy buenos amigos');
+                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, llegarán a ser muy buenos amigos');
                 } else {
-                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, hacen muy buena pareja <3');
+                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3');
                 }
                 msg.channel.send(botijochanEmb)
                 break;
