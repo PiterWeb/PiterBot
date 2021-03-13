@@ -28,7 +28,7 @@ const botijochanEmb = new Discord.MessageEmbed()
 client.on("message", msg => {
 
     var user = msg.author.username;
-    var icon = msg.author.avatar;
+    var icon = msg.author.avatarURL;
     var botijochanname = 'Botijo-Chan';
     var botijochanimg1 = 'https://i.imgur.com/WA1Wyr2.jpg';
     var botijochanimg2 = 'https://i.imgur.com/1zH8Mj5.jpg';
@@ -75,7 +75,7 @@ client.on("message", msg => {
                 botijochanEmb.setTitle('Test de Compatibilidad');
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setImage(botijochanimg2);
-                botijochanEmb.setImage('http://recursosdgitales.com/wp-content/uploads/2020/07/corazon-png.png');
+                botijochanEmb.setImage('https://recursosdgitales.com/wp-content/uploads/2020/07/corazon-png.png');
                 botijochanEmb.setImage(icon);
                 if(porcentajecomp<25){
                     botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, puede que no llegen a ser amigos');
