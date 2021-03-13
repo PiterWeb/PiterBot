@@ -98,7 +98,7 @@ client.on("message", msg => {
                 } else if (porcentajecomp<=25 ) {
                     botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
                 }
-
+                
                 msg.channel.send(botijochanEmb);
                 break;
             case prefix+"link":
