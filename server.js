@@ -28,8 +28,10 @@ const botijochanEmb = new Discord.MessageEmbed()
 client.on("message", msg => {
 
     var user = msg.author.username;
-    var botijochanname = 'Botijo-Chan'
-    var botijochanurl = 'https://i.imgur.com/WA1Wyr2.jpg'
+    var icon = msg.author.avatar;
+    var botijochanname = 'Botijo-Chan';
+    var botijochanimg1 = 'https://i.imgur.com/WA1Wyr2.jpg';
+    var botijochanimg2 = 'https://i.imgur.com/1zH8Mj5.jpg';
 
     if(msg.author.bot || !msg.guild) {
       return;
@@ -51,11 +53,13 @@ client.on("message", msg => {
                 exampleEmb.setTitle('Cala can')
                 msg.channel.send(exampleEmb);
                 break;
+            //Botijo-Chan
             case prefix+"botijo-chan":
                 botijochanEmb.fields = [];
+                botijochanEmb.image = []
                 botijochanEmb.setTitle('¿Que necesitas '+user+'-Kun?');
                 botijochanEmb.setAuthor(botijochanname);
-                botijochanEmb.setThumbnail(botijochanurl);
+                botijochanEmb.setThumbnail(botijochanimg1);
                 botijochanEmb.setDescription('Aquí tienes mis comandos para cuando me necesites');
                 botijochanEmb.addFields(
                     { name: 'Un saludito', value: 'bc/hola', inline: true },
@@ -64,6 +68,26 @@ client.on("message", msg => {
                 msg.channel.send(botijochanEmb)
                 break;
                 //test de compatibilidad con botijo-chan
+            case prefixbc+"botijo-chan":
+                var porcentajecomp = Math.floor(Math.random() * 101);
+                botijochanEmb.fields = [];
+                botijochanEmb.image = []
+                botijochanEmb.setTitle('Test de Compatibilidad');
+                botijochanEmb.setAuthor(botijochanname);
+                botijochanEmb.setImage(botijochanimg2);
+                botijochanEmb.setImage('http://recursosdgitales.com/wp-content/uploads/2020/07/corazon-png.png');
+                botijochanEmb.setImage(icon);
+                if(porcentajecomp<25){
+                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, puede que no llegen a ser amigos');
+                } else if (porcentajecomp<50 || porcentajecomp>25){
+                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, podrian llegar a ser amigos');
+                } else if (porcentajecomp>50 || porcentajecomp<75) {
+                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, llegarán a ser muy buenos amigos');
+                } else {
+                    botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, hacen muy buena pareja <3');
+                }
+                msg.channel.send(botijochanEmb)
+
             case prefix+"link":
                 var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
                 exampleEmb.setTitle(user+' este es mi enlace de Invitación UwU');
