@@ -75,8 +75,6 @@ client.on("message", msg => {
                 botijochanEmb.setTitle('Test de Compatibilidad');
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setImage(botijochanimg2);
-                botijochanEmb.setImage('https://recursosdgitales.com/wp-content/uploads/2020/07/corazon-png.png');
-                botijochanEmb.setImage(icon);
                 if(porcentajecomp <25 || porcentajecomp>0){
                     botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, puede que no llegen a ser amigos');
                 } else if (porcentajecomp<50 || porcentajecomp>25){
