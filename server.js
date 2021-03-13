@@ -90,6 +90,7 @@ client.on("message", msg => {
                 } else {
                     botijochanEmb.setDescription('Tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3');
                 }
+            
                 msg.channel.send(botijochanEmb)
                 break;
             case prefix+"link":
