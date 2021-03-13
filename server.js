@@ -75,18 +75,18 @@ client.on("message", msg => {
                 botijochanEmb.setTitle('Test de Compatibilidad');
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setImage(botijochanimg2);
-                botijochanEmb.setImage('http://recursosdgitales.com/wp-content/uploads/2020/07/corazon-png.png');
+                botijochanEmb.setImage('https://recursosdgitales.com/wp-content/uploads/2020/07/corazon-png.png');
                 botijochanEmb.setImage(icon);
-                if(porcentajecomp<25){
+                if(porcentajecomp <25 || porcentajecomp>0){
                     botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, puede que no llegen a ser amigos');
                 } else if (porcentajecomp<50 || porcentajecomp>25){
                     botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, podrian llegar a ser amigos');
                 } else if (porcentajecomp>50 || porcentajecomp<75) {
                     botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, llegarán a ser muy buenos amigos');
-                } else {
+                } else if (porcentajecomp>75) {
                     botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, hacen muy buena pareja <3');
                 }
-                msg.channel.send(botijochanEmb)
+                msg.channel.send(botijochanEmb);
                 break;
             case prefix+"link":
                 var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
