@@ -24,7 +24,6 @@ const botijochanEmb = new Discord.MessageEmbed()
 
 //Bot//
 
-
 client.on("message", msg => {
 
     var user = msg.author.username;
@@ -75,20 +74,7 @@ client.on("message", msg => {
                 botijochanEmb.setTitle('Test de Compatibilidad');
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setImage(botijochanimg2);
-                // switch(porcentajecomp){
-                //     case porcentajecomp<=75:
-                //         botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
-                //     break;
-                //     case porcentajecomp>=50:
-                //         botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, llegarán a ser muy buenos amigos ');
-                //     break;
-                //     case porcentajecomp>=25:
-                //         botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, podrian llegar a ser amigos');
-                //     break;
-                // case porcentajecomp<=25:
-                //     botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
-                //     break;       
-                // }
+
                 if(porcentajecomp>=75){
                     botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
                 } else if (porcentajecomp>=50){
@@ -98,7 +84,7 @@ client.on("message", msg => {
                 } else if (porcentajecomp<=25 ) {
                     botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
                 }
-                
+
                 msg.channel.send(botijochanEmb);
                 break;
             case prefix+"link":
