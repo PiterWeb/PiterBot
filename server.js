@@ -87,7 +87,7 @@ client.on("message", msg => {
                     botijochanEmb.setDescription('Tienes un '+porcentajecomp+' de compatibilidad de Botijo-Chan, hacen muy buena pareja <3');
                 }
                 msg.channel.send(botijochanEmb)
-
+                break;
             case prefix+"link":
                 var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
                 exampleEmb.setTitle(user+' este es mi enlace de Invitación UwU');
