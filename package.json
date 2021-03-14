@@ -2,7 +2,7 @@
   "name": "discord",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "discord.js": "^12.5.1",
     "join-images": "^0.2.5"
