@@ -25,11 +25,9 @@ module.exports = async () => {
       }
       
       const fluffy = new Kitten({ name: 'fluffy' });
-      fluffy.speak();
 
       fluffy.save(function (err, fluffy) {
         if (err) return console.error(err);
-        fluffy.speak();
       });
 
       Kitten.find(function (err, kittens) {
