@@ -1,7 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const mergeImages = require('merge-images');
-const { Canvas, Image } = require('canvas');
 
 var prefix = "p/"
 var prefixbc = "bc/"
@@ -75,11 +73,6 @@ client.on("message", msg => {
                 botijochanEmb.image = []
                 botijochanEmb.setTitle('Test de Compatibilidad');
                 botijochanEmb.setAuthor(botijochanname);
-                mergeImages([icon, 'https://images.vexels.com/media/users/3/136176/isolated/preview/416e80b4fe03f01a1ae1f5b6e51c91a4-simbolo-de-corazon-by-vexels.png', botijochanimg2 ]),{
-                    Canvas: Canvas,
-                    Image: Image
-                }
-                    .then(b64 => 'love.png');
                 botijochanEmb.setImage('love.png');
                 if(porcentajecomp>=75){
                     botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
