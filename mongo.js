@@ -20,7 +20,10 @@ module.exports = async () => {
         if (err) return console.error(err);
       });
 
-    return mongoose.model('Kitten')
+      sameNameCat = function (cb){
+      return mongoose.model('Kitten').find( {name: 'fluffy'}), cb};
+
+        console.log(sameNameCat('fluffy'))
 
     return mongoose;
 
