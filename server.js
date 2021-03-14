@@ -73,7 +73,7 @@ client.on("message", msg => {
                 botijochanEmb.image = []
                 botijochanEmb.setTitle('Test de Compatibilidad');
                 botijochanEmb.setAuthor(botijochanname);
-                botijochanEmb.setImage('love.png');
+                botijochanEmb.setImage(botijochanimg2);
                 if(porcentajecomp>=75){
                     botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
                 } else if (porcentajecomp>=50){
