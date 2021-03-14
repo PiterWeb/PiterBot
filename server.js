@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-import mergeImages from 'merge-images';
+const mergeImages = require('merge-images');
 
 var prefix = "p/"
 var prefixbc = "bc/"
