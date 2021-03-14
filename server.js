@@ -10,7 +10,7 @@ client.on("ready", async () => {
 
     await mongo().then(mongoose => {
         try {
-            console.log('Connected to Mongo')
+            console.log('Connected to Mongo');
         } finally {
             mongoose.connection.close()
         }
