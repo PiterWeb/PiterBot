@@ -7,22 +7,15 @@ const con = mysql.createConnection({
     database: process.env.DB,
   });
 
-  
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-
-
-    con.connect(function(err) {
-        if (err) throw err;
-        console.log("Connected!");
         var sqluserins = "INSERT INTO users (name, messages) VALUES ('PiterZ', 900)";
         con.query(sqluserins, function (err, result) {
           if (err) throw err;
           console.log("1 record inserted");
           con.end();
         });
-      });
     
     // var sqlusertb = "CREATE TABLE users (name VARCHAR(255), messages VARCHAR(255))";
 
@@ -31,4 +24,5 @@ const con = mysql.createConnection({
     //     console.log("Table created");
     //     con.end();
     //   });
+    
   });
