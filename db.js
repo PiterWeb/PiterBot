@@ -20,6 +20,7 @@ const con = mysql.createConnection({
         con.query(sqluserins, function (err, result) {
           if (err) throw err;
           console.log("1 record inserted");
+          con.end();
         });
       });
     
