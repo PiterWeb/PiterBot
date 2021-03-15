@@ -16,6 +16,6 @@ const con = mysql.createConnection({
     con.query(sqluser, function (err, result) {
         if (err) throw err;
         console.log("Table created");
-        connection.end();
+        con.end();
       });
   });
