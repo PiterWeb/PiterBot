@@ -11,12 +11,23 @@ const con = mysql.createConnection({
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    
-    var sqluser = "CREATE TABLE users (name VARCHAR(255), messages VARCHAR(255))";
 
-    con.query(sqluser, function (err, result) {
+
+    con.connect(function(err) {
         if (err) throw err;
-        console.log("Table created");
-        con.end();
+        console.log("Connected!");
+        var sqluserins = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
+        con.query(sqluserins, function (err, result) {
+          if (err) throw err;
+          console.log("1 record inserted");
+        });
       });
+    
+    // var sqlusertb = "CREATE TABLE users (name VARCHAR(255), messages VARCHAR(255))";
+
+    // con.query(sqlusertb, function (err, result) {
+    //     if (err) throw err;
+    //     console.log("Table created");
+    //     con.end();
+    //   });
   });
