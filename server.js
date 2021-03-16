@@ -1,13 +1,27 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const db = require('./db')
 
 var prefix = "p/"
 var prefixbc = "bc/"
+var prefixname = "/name"
+
+const mysql = require('mysql');
+
+const con = mysql.createConnection({
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PSW,
+    database: process.env.DB,
+  });
+
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+
+  });
 
 client.on("ready", async () => {
     console.log("Bot Listo")
-
 });
 
 //Embeds//
@@ -33,6 +47,7 @@ client.on("message", msg => {
     var botijochanname = 'Botijo-Chan';
     var botijochanimg1 = 'https://i.imgur.com/WA1Wyr2.jpg';
     var botijochanimg2 = 'https://i.imgur.com/1zH8Mj5.jpg';
+    
 
     if(msg.author.bot || !msg.guild) {
       return;
@@ -45,6 +60,25 @@ client.on("message", msg => {
             msg.reply("Calla tonto");
         }
     }
+
+    const args = message.content.slice(prefix.length).trim().split(' ');
+    const command = args.shift().toLowerCase();
+
+    if(msg.author.bot || !msg.guild) {
+        return;
+    } else if (command == 'name'){
+        if (!args.length) {
+            return message.channel.send(`No has cambiado el nombre, ${message.author}!`);
+        } else {
+            const sqluserins = "INSERT INTO users (name) VALUES (${args})";
+            message.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
+            con.query(sqluserins, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+                con.end();
+            });
+        }}
+
         switch (msg.content) {
             case prefix+"hola":
                 exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
