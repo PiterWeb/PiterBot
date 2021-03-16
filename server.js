@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-import { sql } from './db';
+import { sql } from './db.js';
 
 var prefix = "p/"
 var prefixbc = "bc/"
