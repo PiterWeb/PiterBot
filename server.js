@@ -3,7 +3,6 @@ const client = new Discord.Client();
 
 var prefix = "p/"
 var prefixbc = "bc/"
-var prefixname = "/name"
 
 const mysql = require('mysql');
 
@@ -61,17 +60,17 @@ client.on("message", msg => {
         }
     }
 
-    const args = message.content.slice(prefix.length).trim().split(' ');
+    const args = msg.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
 
     if(msg.author.bot || !msg.guild) {
         return;
-    } else if (command == 'name'){
+    } else if (command == '/name'){
         if (!args.length) {
-            return message.channel.send(`No has cambiado el nombre, ${message.author}!`);
+            return msg.channel.send(`No has cambiado el nombre, ${msg.author}!`);
         } else {
             const sqluserins = "INSERT INTO users (name) VALUES (${args})";
-            message.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
+            msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
             con.query(sqluserins, function (err, result) {
                 if (err) throw err;
                 console.log("1 record inserted");
