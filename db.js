@@ -10,7 +10,7 @@ const con = mysql.createConnection({
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-        var sqluserins = "INSERT INTO users (name, messages) VALUES ('PiterZ', 900)";
+        var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
         con.query(sqluserins, function (err, result) {
           if (err) throw err;
           console.log("1 record inserted");
