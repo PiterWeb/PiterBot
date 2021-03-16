@@ -1,10 +1,33 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-import { sql } from './db.mjs';
+const sql = require('./modules/db')
+const mysql = require('mysql');
+
+const con = mysql.createConnection({
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PSW,
+    database: process.env.DB,
+  });
+
 
 var prefix = "p/"
 var prefixbc = "bc/"
-;
+
+const mysql = require('mysql');
+
+const con = mysql.createConnection({
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PSW,
+    database: process.env.DB,
+  });
+
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+
+  });
 
 client.on("ready", async () => {
     console.log("Bot Listo")
@@ -56,9 +79,10 @@ client.on("message", msg => {
         if (!args.length) {
             return msg.channel.send(`No has cambiado el nombre, ${msg.author}!`);
         } else {
-            var insertname = "INSERT INTO users (name) VALUES (${args})";
+            var task = "INSERT INTO users (name) VALUES (${args})";
             msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
-            new sql(insertname);
+            sql.sql(task);
+            
         }}
 
         switch (msg.content) {
