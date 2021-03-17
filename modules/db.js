@@ -12,15 +12,17 @@ const con = mysql.createConnection({
 //     console.log("Connected!");
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
 
-  module.exports = {
-    sql: function sql(task){
+
+      function sql(task){
       con.query(task, function (err, result) {
       if (err) throw err;
       console.log("1 record inserted");
       con.end();
     });
     }
-  }
+  
+
+  module.exports = { sql };
 
        
 

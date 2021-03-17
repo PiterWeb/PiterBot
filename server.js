@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const mysql = require('mysql');
-const sql = require('./modules/db')
+const db = require('./modules/db.js')
 
 var prefix = "p/"
 var prefixbc = "bc/"
@@ -69,7 +69,7 @@ client.on("message", msg => {
         } 
             var task = 'INSERT INTO users name VALUES '+args;
             msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
-            typeof sql.sql(task);
+            db.sql(task);
             
         }
 
