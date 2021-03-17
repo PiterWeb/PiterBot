@@ -62,11 +62,12 @@ client.on("message", msg => {
     const args = msg.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
     
-     if (command == '/name'){
+    if (!message.content.startsWith(prefix)|| !message.content.startsWith(prefixbc) ) return;
+     else if (command == 'name'){
         if (!args.length) {
             return msg.channel.send(`No has cambiado el nombre, ${msg.author}!`);
         } 
-            var task = "INSERT INTO users (name) VALUES (${args})";
+            var task = 'INSERT INTO users name VALUES '+args;
             msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
             typeof sql.sql(task);
             
