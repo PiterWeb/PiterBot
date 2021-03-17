@@ -62,7 +62,7 @@ client.on("message", msg => {
     const args = msg.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
     
-    if (!message.content.startsWith(prefix)|| !message.content.startsWith(prefixbc) ) return;
+    if (!msg.content.startsWith(prefix)|| !msg.content.startsWith(prefixbc) ) return;
      else if (command == 'name'){
         if (!args.length) {
             return msg.channel.send(`No has cambiado el nombre, ${msg.author}!`);
