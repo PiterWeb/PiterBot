@@ -51,9 +51,7 @@ client.on("message", msg => {
 
     if(msg.author.bot || !msg.guild) {
       return;
-    }
-    
-    else if (msg.author == 551114700474286101 ){
+    } else if (msg.author == 551114700474286101 ){
         var numero = 1;
         var elegido = Math.floor(Math.random() * 101);
         if(numero == elegido) {
@@ -63,18 +61,16 @@ client.on("message", msg => {
 
     const args = msg.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-
-    if(msg.author.bot || !msg.guild) {
-        return;
-    } else if (command == '/name'){
+    
+     if (command == '/name'){
         if (!args.length) {
             return msg.channel.send(`No has cambiado el nombre, ${msg.author}!`);
-        } else {
+        } 
             var task = "INSERT INTO users (name) VALUES (${args})";
             msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
             typeof sql.sql(task);
             
-        }}
+        }
 
         switch (msg.content) {
             case prefix+"hola":
