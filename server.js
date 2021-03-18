@@ -1,24 +1,9 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const mysql = require('mysql');
 const db = require('./modules/db.js')
 
 var prefix = "p/"
 var prefixbc = "bc/"
-
-const con = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PSW,
-    database: process.env.DB,
-  });
-
-
-con.connect(function(err) {
-if (err) throw err;
-console.log("Connected!");
-
-  });
 
 client.on("ready", async () => {
     console.log("Bot Listo")
