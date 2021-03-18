@@ -27,8 +27,6 @@ const botijochanEmb = new Discord.MessageEmbed()
 
 client.on("message", msg => {
 
-    msg.channel.send(msg.content)
-
     // var user = msg.author.username;
     // var icon = msg.author.avatar;
     // var botijochanname = 'Botijo-Chan';
