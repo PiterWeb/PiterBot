@@ -7,11 +7,11 @@ const con = mysql.createConnection({
     database: process.env.DB,
   });
 
-  function conectar (){
-    con.connect(function(err) {
+  con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-      })}
+    
+      });
 //   con.connect(function(err) {
 //     if (err) throw err;
 //     console.log("Connected!");
@@ -27,7 +27,7 @@ const con = mysql.createConnection({
     }
   
 
-  module.exports = { sql , conectar };
+  module.exports = { sql };
 
        
 
