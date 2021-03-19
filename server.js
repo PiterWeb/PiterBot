@@ -32,6 +32,8 @@ client.on("message", msg => {
     var botijochanname = 'Botijo-Chan';
     var botijochanimg1 = 'https://i.imgur.com/WA1Wyr2.jpg';
     var botijochanimg2 = 'https://i.imgur.com/1zH8Mj5.jpg';
+
+    let filter = m => m.author.id === msg.author.id
     
 
     if(msg.author.bot || !msg.guild) {
@@ -44,14 +46,24 @@ client.on("message", msg => {
         }
     }
 
-    const args = msg.content.slice(prefix.length).trim().split(' ');
-    const command = args.shift().toLowerCase();
-
         switch (msg.content) {
             case prefix+"name":
-                var task = 'INSERT INTO users (name) VALUES ('+args+')';
-                msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
-                db.sql(task);
+                msg.channel.send('Especifíca el nombre escribiendolo despues de este mensaje').then(() => {
+                    msg.channel.awaitMessages(filter, {
+                        max: 1,
+                        time: 30000,
+                        errors: ['time']
+                      })
+                      .then(msg => {
+                        msg = msg.first()
+                        var task = 'INSERT INTO users (name) VALUES ('+msg.content+')';
+                        msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
+                        db.sql(task);
+                        })
+                      .catch(collected => {
+                          msg.channel.send('Se acabó el tiempo');
+                      });
+                    });
                 break;
             case prefix+"hola":
                 exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
