@@ -56,8 +56,7 @@ client.on("message", msg => {
                       })
                       .then(msg => {
                         msg = msg.first()
-                        var name = new String(msg)
-                        var task = 'INSERT INTO users (name) VALUES ('+name+')';
+                        var task = 'INSERT INTO users (name) VALUES ('+msg+')';
                         msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
                         db.sql(task);
                         })
