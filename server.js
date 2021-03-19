@@ -10,10 +10,10 @@ client.on("ready", async () => {
     client.user.setPresence({
         game: { 
             name: 'Comunismo',
-            type: 'WATCHING'
+            type: 'WATCHING',
         },
-        status: 'online'
-    })
+        status: 'online',
+    });
 });
 
 //Embeds//
