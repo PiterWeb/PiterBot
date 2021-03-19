@@ -11,6 +11,11 @@ client.on("ready", async () => {
 
 //Embeds//
 
+//Embed Advertencia
+
+const advEmb = new Discord.MessageEmbed()
+    .setColor('#D12D1D')
+    .setFooter('Sigue las instrucciones de este mensaje')
 
 //Embed Simple
 
@@ -48,7 +53,8 @@ client.on("message", msg => {
 
         switch (msg.content) {
             case prefix+"name":
-                msg.channel.send('Especifíca el nombre escribiendolo despues de este mensaje').then(() => {
+                advEmb.setTitle('Especifíca el nombre escribiendolo despues de este mensaje')
+                msg.channel.send(advEmb).then(() => {
                     msg.channel.awaitMessages(filter, {
                         max: 1,
                         time: 30000,
