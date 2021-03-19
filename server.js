@@ -61,13 +61,14 @@ client.on("message", msg => {
                         errors: ['time']
                       })
                       .then(msg => {
+                        var username = msg.first().content 
                         msg = msg.first()
-                        var task = 'INSERT INTO users (name) VALUES ('+msg.content+')';
+                        var task = 'INSERT INTO users (name) VALUES ('+username+')';
                         msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
                         db.sql(task);
                         })
                       .catch(collected => {
-                          msg.channel.send('Se acabó el tiempo');
+                          msg.channel.send('Se acabó el tiempo o ha ocurrido un error en la consulta ');
                       });
                     });
                 break;
