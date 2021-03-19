@@ -61,9 +61,8 @@ client.on("message", msg => {
                         errors: ['time']
                       })
                       .then(msg => {
-                        msg = msg.first()
                         var task = 'INSERT INTO users (name) VALUES ('+msg.first().content+')';
-                        msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
+                        msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg.first()}`);
                         db.sql(task);
                         })
                       .catch(collected => {
