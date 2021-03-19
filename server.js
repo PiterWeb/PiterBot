@@ -7,13 +7,7 @@ var prefixbc = "bc/"
 
 client.on("ready", async () => {
     console.log("Bot Listo")
-    client.user.setPresence({
-        game: { 
-            name: 'Comunismo',
-            type: 'WATCHING',
-        },
-        status: 'online',
-    });
+    client.user.setStatus('Jugando a comunismo');
 });
 
 //Embeds//
