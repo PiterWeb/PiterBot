@@ -46,16 +46,13 @@ client.on("message", msg => {
 
     const args = msg.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-    
-     if (command == '/name'){
-            var task = 'INSERT INTO users (name) VALUES ('+args+')';
-            msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
-            db.sql(task);
-        } else if (!args.length) {
-            msg.channel.send(`No has cambiado el nombre, ${msg.author}!`);
-        }
 
         switch (msg.content) {
+            case "/name":
+                var task = 'INSERT INTO users (name) VALUES ('+args+')';
+                msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${args}`);
+                db.sql(task);
+                break;
             case prefix+"hola":
                 exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
                 msg.channel.send(exampleEmb)
@@ -104,7 +101,7 @@ client.on("message", msg => {
                 exampleEmb.setDescription(link)
                 msg.channel.send(exampleEmb)
                 break;
-        }  
+        }   
 });
 
 //Login//
