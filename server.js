@@ -90,9 +90,8 @@ client.on("message", msg => {
                     });
                 break;
             case prefix+"hola":
-                db.sql(getname);
-                var nameuser = db.namesql;                
-                exampleEmb.setTitle('Hola, ¿ que tal '+ nameuser + '?')
+                db.sql(getname);             
+                exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
                 msg.channel.send(exampleEmb)
                 break;
             case prefix+"cerdo":
