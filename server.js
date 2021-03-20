@@ -37,7 +37,8 @@ client.on("message", msg => {
 
     //USER VAR
     var user = msg.author.username;
-    user = user.replace(/ /g,'')
+    user = user.replace(/ /g,'');
+    user = user.charAt(0).toUpperCase() + user.slice(1);  
     var icon = msg.author.avatar;
 
     //BC VAR
