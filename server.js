@@ -40,6 +40,7 @@ client.on("message", msg => {
     user = user.replace(/ /g,'');
     user = user.charAt(0).toUpperCase() + user.slice(1);  
     var icon = msg.author.avatar;
+    var username = db.sql(getname);  
 
     //BC VAR
     var botijochanname = 'Botijo-Chan';
@@ -82,6 +83,7 @@ client.on("message", msg => {
                         msg = msg.first()
 
                         var insert = "INSERT INTO users(name,user) VALUES('"+msg+"','"+user+"')";
+                        
                         msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
                         db.sql(insert);
                         })
@@ -90,9 +92,8 @@ client.on("message", msg => {
                       });
                     });
                 break;
-            case prefix+"hola":
-                db.sql(getname);             
-                exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
+            case prefix+"hola":             
+                exampleEmb.setTitle('Hola, ¿ que tal '+ username + '?')
                 msg.channel.send(exampleEmb)
                 break;
             case prefix+"cerdo":
