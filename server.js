@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const db = require('./modules/db.js')
 
+//BOT PREFIX
+
 var prefix = "p/"
 var prefixbc = "bc/"
 
@@ -10,41 +12,52 @@ client.on("ready", async () => {
     client.user.setStatus('Jugando a comunismo');
 });
 
-//Embeds//
+//EMBEDS//
 
-//Embed Advertencia
+//EMBED ADV
 
 const advEmb = new Discord.MessageEmbed()
     .setColor('#D12D1D')
     .setFooter('Sigue las instrucciones de este mensaje')
 
-//Embed Simple
+//EMBED SIMPLE
 
 const exampleEmb = new Discord.MessageEmbed()
 	.setColor('#BB391D')
 	.setFooter('Aquí estuvo Botijo-Chan');
 
-//Embed Botijo-Chan
+//EMBED BC
 
 const botijochanEmb = new Discord.MessageEmbed()
     .setColor('#BB861D')
 
-//Bot//
+//BOT//
 
 client.on("message", msg => {
 
+    //USER VAR
     var user = msg.author.username;
+    user = user.replace(/ /g,'')
     var icon = msg.author.avatar;
+
+    //BC VAR
     var botijochanname = 'Botijo-Chan';
     var botijochanimg1 = 'https://i.imgur.com/WA1Wyr2.jpg';
     var botijochanimg2 = 'https://i.imgur.com/1zH8Mj5.jpg';
 
+    //SQL VAR 
+    var getname = "SELECT name FROM users WHERE user ='"+user+"'";
+
+    //FILTER VAR
+
     let filter = m => m.author.id === msg.author.id
     
+    //BOT msg
 
     if(msg.author.bot || !msg.guild) {
       return;
-    } else if (msg.author == 551114700474286101 ){
+    } else if (msg.author == 551114700474286101 ){  
+    //PROBABILITY WITH USER MSG
         var numero = 1;
         var elegido = Math.floor(Math.random() * 101);
         if(numero == elegido) {
@@ -52,7 +65,10 @@ client.on("message", msg => {
         }
     }
 
+    //MSG CONTENT
+
         switch (msg.content) {
+            //BOT MSG
             case prefix+"name":
                 advEmb.setTitle('Especifíca el nombre escribiendolo despues de este mensaje')
                 msg.channel.send(advEmb).then(() => {
@@ -63,12 +79,10 @@ client.on("message", msg => {
                       })
                       .then(msg => {
                         msg = msg.first()
-                        
-                        user = user.replace(/ /g,'')
 
-                        var task = "INSERT INTO users(name,user) VALUES('"+msg+"','"+user+"')";
+                        var insert = "INSERT INTO users(name,user) VALUES('"+msg+"','"+user+"')";
                         msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
-                        db.sql(task);
+                        db.sql(insert);
                         })
                       .catch(collected => {
                           msg.channel.send('Se acabó el tiempo o ha ocurrido un error en la consulta ');
@@ -76,14 +90,16 @@ client.on("message", msg => {
                     });
                 break;
             case prefix+"hola":
-                exampleEmb.setTitle('Hola, ¿ que tal '+ user + '?')
+                db.sql(getname);
+                var nameuser = db.namesql;                
+                exampleEmb.setTitle('Hola, ¿ que tal '+ nameuser + '?')
                 msg.channel.send(exampleEmb)
                 break;
             case prefix+"cerdo":
                 exampleEmb.setTitle('Cala can')
                 msg.channel.send(exampleEmb);
                 break;
-            //Botijo-Chan
+            //BC MSG
             case prefix+"botijo-chan":
                 botijochanEmb.fields = [];
                 botijochanEmb.image = []
@@ -117,6 +133,7 @@ client.on("message", msg => {
 
                 msg.channel.send(botijochanEmb);
                 break;
+                //ADMIN MSG
             case prefix+"link":
                 var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
                 exampleEmb.setTitle(user+' este es mi enlace de Invitación UwU');
