@@ -79,7 +79,7 @@ client.on("message", msg => {
                         errors: ['time']
                       })
                       .then(msg => {
-                        msg = msg.first()
+                        msg = msg.first().content
 
                         var insert = "INSERT INTO users(name,user) VALUES('"+msg+"','"+user+"')";
                         
