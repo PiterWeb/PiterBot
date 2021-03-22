@@ -79,8 +79,8 @@ client.on("message", msg => {
                         errors: ['time']
                       })
                       .then(msg => {
-                        msg = msg.first()
                         var msgcontent = msg.first().content
+                        msg = msg.first()
                         console.log(msgcontent)
                         var insert = "INSERT INTO users(name,user) VALUES('"+msgcontent+"','"+user+"')";
                         msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
