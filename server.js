@@ -48,7 +48,7 @@ client.on("message", msg => {
     var botijochanimg2 = 'https://i.imgur.com/1zH8Mj5.jpg';
 
     //SQL VAR 
-    var getname = "SELECT name FROM users WHERE user ='"+user+"'";
+   
 
     //FILTER VAR
 
@@ -92,8 +92,9 @@ client.on("message", msg => {
                       });
                     });
                 break;
-            case prefix+"hola":             
-                exampleEmb.setTitle('Hola, ¿ que tal '+ username + '?')
+            case prefix+"hola": 
+                var getname = "SELECT name FROM users WHERE user ='"+user+"'"; 
+                exampleEmb.setTitle('Hola, ¿ que tal '+ db.sql(getname) + '?')
                 msg.channel.send(exampleEmb)
                 break;
             case prefix+"cerdo":

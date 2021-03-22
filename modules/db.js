@@ -20,7 +20,7 @@ const con = mysql.createConnection({
       function sql(task){
         con.query(task, function (err, result) {
           if (err) throw err;
-          console.log(result);
+          return(result);
           con.end();
         });
       } 
