@@ -19,7 +19,7 @@ const con = mysql.createConnection({
 
       function sqlinsert(task){
         con.query(task, function (err, result) {
-          if (err) throw err;
+          if (err) return console.error(err.message);
           console.log(result);
           con.end();
         });
@@ -28,7 +28,7 @@ const con = mysql.createConnection({
       function sqlselect(task){
         con.query(task, function (err, result , fields) {
           if (err) return console.error(err.message);
-          var results = JSON.parse(result);
+          var results = JSON.parse(JSON.stringify(result));
           console.log(results.name)
           return results.name;
           con.end();
