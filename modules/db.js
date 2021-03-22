@@ -28,10 +28,13 @@ const con = mysql.createConnection({
       function sqlselect(task){
         con.query(task, function (err, result , fields) {
           if (err) throw err;
-          return(result);
+          Object.keys(result).forEach(function(key) {
+            var row = result[key];
+            return(row.name)
           con.end();
+          });
         });
-      } 
+      }
         
 
   module.exports = {sqlinsert , sqlselect};
