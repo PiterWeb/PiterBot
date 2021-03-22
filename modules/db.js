@@ -25,7 +25,7 @@ const con = mysql.createConnection({
         });
       } 
 
-      function sqselect(task){
+      function sqlselect(task){
         con.query(task, function (err, result , fields) {
           if (err) throw err;
           return(result);
@@ -34,7 +34,7 @@ const con = mysql.createConnection({
       } 
         
 
-  module.exports = {sqlinsert , sqselect};
+  module.exports = {sqlinsert , sqlselect};
 
        
 
