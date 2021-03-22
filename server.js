@@ -92,7 +92,7 @@ client.on("message", msg => {
                     });
                 break;
             case prefix+"hola": 
-                var getname = "SELECT (name) FROM users WHERE user like '"+user+"'"; 
+                var getname = "SELECT (name) FROM users WHERE user = '"+user+"'"; 
                 exampleEmb.setTitle('Hola, ¿ que tal '+ db.sqlselect(getname) + '?');
                 msg.channel.send(exampleEmb);
                 break;
