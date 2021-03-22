@@ -80,6 +80,7 @@ client.on("message", msg => {
                       })
                       .then(msg => {
                         msg = msg.first().content
+                        console.log(msg)
 
                         var insert = "INSERT INTO users(name,user) VALUES('"+msg+"','"+user+"')";
                         
