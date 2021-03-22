@@ -21,7 +21,6 @@ const con = mysql.createConnection({
         con.query(task, function (err, result) {
           if (err) throw err;
           console.log(result);
-          con.end();
         });
       } 
 
@@ -30,11 +29,10 @@ const con = mysql.createConnection({
           if (err) return console.error(err.message);
           console.log(result)
           return(result);
-          con.end();
         });
       } 
 
-        
+  con.end();  
 
   module.exports = {sqlinsert , sqlselect};
 
