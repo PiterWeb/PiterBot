@@ -40,7 +40,6 @@ client.on("message", msg => {
     user = user.replace(/ /g,'');
     user = user.charAt(0).toUpperCase() + user.slice(1);  
     var icon = msg.author.avatar;
-    var username = db.sql(getname);  
 
     //BC VAR
     var botijochanname = 'Botijo-Chan';
