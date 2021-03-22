@@ -79,15 +79,14 @@ client.on("message", msg => {
                         errors: ['time']
                       })
                       .then(msg => {
-
-                        msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
                         msg = msg.first().content
                         console.log(msg)
                         var insert = "INSERT INTO users(name,user) VALUES('"+msg+"','"+user+"')";
+                        msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
                         db.sqlinsert(insert);
                         })
                       .catch(collected => {
-                          msg.channel.send('Se acabó el tiempo o ha ocurrido un error en la consulta. error:'+collected);
+                        msg.channel.send('Se acabó el tiempo o ha ocurrido un error en la consulta. error:'+collected);
                       });
                     });
                 break;
