@@ -32,6 +32,7 @@ const con = mysql.createConnection({
           con.end();
         });
       } 
+      
         
 
   module.exports = {sqlinsert , sqlselect};
