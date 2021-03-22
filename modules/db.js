@@ -30,9 +30,10 @@ const con = mysql.createConnection({
           if (err) throw err;
           Object.keys(result).forEach(function(key) {
             var row = result[key];
-            return(row.name)
-          con.end();
+            return(row.name);
+            console.log(row.name);
           });
+          con.end();
         });
       }
         
