@@ -79,9 +79,10 @@ client.on("message", msg => {
                         errors: ['time']
                       })
                       .then(msg => {
-                        msg = msg.first().content
-                        console.log(msg)
-                        var insert = "INSERT INTO users(name,user) VALUES('"+msg+"','"+user+"')";
+                        msg = msg.first()
+                        var msgcontent = msg.first().content
+                        console.log(msgcontent)
+                        var insert = "INSERT INTO users(name,user) VALUES('"+msgcontent+"','"+user+"')";
                         msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
                         db.sqlinsert(insert);
                         })
@@ -92,11 +93,11 @@ client.on("message", msg => {
                 break;
             case prefix+"hola": 
                 var getname = "SELECT name FROM users WHERE user ='"+user+"'"; 
-                exampleEmb.setTitle('Hola, ¿ que tal '+ db.sqlselect(getname) + '?')
-                msg.channel.send(exampleEmb)
+                exampleEmb.setTitle('Hola, ¿ que tal '+ db.sqlselect(getname) + '?');
+                msg.channel.send(exampleEmb);
                 break;
             case prefix+"cerdo":
-                exampleEmb.setTitle('Cala can')
+                exampleEmb.setTitle('Cala can');
                 msg.channel.send(exampleEmb);
                 break;
             //BC MSG
