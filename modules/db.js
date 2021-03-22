@@ -17,8 +17,16 @@ const con = mysql.createConnection({
 //     console.log("Connected!");
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
 
-      function sql(task){
+      function sqlinsert(task){
         con.query(task, function (err, result) {
+          if (err) throw err;
+          console.log(result);
+          con.end();
+        });
+      } 
+
+      function sqselect(task){
+        con.query(task, function (err, result , fields) {
           if (err) throw err;
           return(result);
           con.end();
@@ -26,7 +34,7 @@ const con = mysql.createConnection({
       } 
         
 
-  module.exports = {sql};
+  module.exports = {sqlinsert , sqselect};
 
        
 

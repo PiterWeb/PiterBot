@@ -85,7 +85,7 @@ client.on("message", msg => {
                         var insert = "INSERT INTO users(name,user) VALUES('"+msg+"','"+user+"')";
                         
                         msg.channel.send(`Has cambiado exitosamente el nombre con el que te reconoce el bot a ${msg}`);
-                        db.sql(insert);
+                        db.sqlinsert(insert);
                         })
                       .catch(collected => {
                           msg.channel.send('Se acabó el tiempo o ha ocurrido un error en la consulta ');
@@ -94,7 +94,7 @@ client.on("message", msg => {
                 break;
             case prefix+"hola": 
                 var getname = "SELECT name FROM users WHERE user ='"+user+"'"; 
-                exampleEmb.setTitle('Hola, ¿ que tal '+ db.sql(getname) + '?')
+                exampleEmb.setTitle('Hola, ¿ que tal '+ db.sqlselect(getname) + '?')
                 msg.channel.send(exampleEmb)
                 break;
             case prefix+"cerdo":
