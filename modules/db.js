@@ -8,7 +8,7 @@ const con = mysql.createConnection({
   });
 
   con.connect(function(err) {
-    if (err) throw err;
+    if (err) return console.error(err.message);
     console.log("Connected!");
     
       });
@@ -28,9 +28,10 @@ const con = mysql.createConnection({
       function sqlselect(task){
         con.query(task, function (err, result , fields) {
           if (err) return console.error(err.message);
-          var results = JSON.parse(JSON.stringify(result));
-          console.log(results.name)
-          return results.name;
+          var results = JSON.parse(result);
+          var res = results["name"]
+          console.log(res)
+          return res;
           con.end();
         });
       }   
