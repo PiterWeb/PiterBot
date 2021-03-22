@@ -88,7 +88,7 @@ client.on("message", msg => {
                         db.sqlinsert(insert);
                         })
                       .catch(collected => {
-                          msg.channel.send('Se acabó el tiempo o ha ocurrido un error en la consulta ');
+                          msg.channel.send('Se acabó el tiempo o ha ocurrido un error en la consulta. error:'+collected);
                       });
                     });
                 break;
