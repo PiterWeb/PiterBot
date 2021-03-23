@@ -29,8 +29,7 @@ const con = mysql.createConnection({
         con.query(task, function (err, result , fields) {
           if (err) return console.error(err.message);
           var results = JSON.stringify(result);
-          console.log(results['name'])
-          return results['name'];
+          return results;
           con.end();
         });
       }   
