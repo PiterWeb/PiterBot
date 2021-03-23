@@ -93,8 +93,8 @@ client.on("message", msg => {
                 break;
             case prefix+"hola": 
                 var getname = "SELECT name FROM users WHERE user = '"+user+"'"; 
-                exampleEmb.setTitle('Hola, ¿ que tal '+ db.sqlselect(getname)["user"] + '?');
-                console.log(db.sqlselect(getname)["user"]);
+                exampleEmb.setTitle('Hola, ¿ que tal '+ db.sqlselect(getname) + '?');
+                console.log(db.sqlselect(getname));
                 msg.channel.send(exampleEmb);
                 break;
             case prefix+"cerdo":
