@@ -97,7 +97,8 @@ client.on("message", msg => {
                 db.sqlselect(getname, function(err,data){
                     if (err) {
                         console.log("ERROR : ",err);            
-                    } else {            
+                    } else {
+                        console.log(data);    
                         getName = data 
                     }
                 });
