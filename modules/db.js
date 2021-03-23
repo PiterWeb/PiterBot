@@ -25,12 +25,13 @@ const con = mysql.createConnection({
         });
       } 
 
-      function sqlselect(task){
+      function sqlselect(task, callback){
         con.query(task, function (err, result , fields) {
-          if (err) return console.error(err.message);
-          console.log(result[0].name);
-          console.log(result);
-          return result;
+          if (err) {
+            callback(err,null);
+          } else {
+            callback(null,result[0].name);
+          }
           con.end();
         });
       }   
