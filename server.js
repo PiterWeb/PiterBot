@@ -92,9 +92,16 @@ client.on("message", msg => {
                     });
                 break;
             case prefix+"hola": 
-                var getname = "SELECT name FROM users WHERE user = '"+user+"'"; 
-                db.sqlselect(getname);
-               //exampleEmb.setTitle('Hola, ¿ que tal '+ db.sqlselect(getname)[0].name + '?');;
+                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+                var getName;
+                db.sqlselect(getname, function(err,data){
+                    if (err) {
+                        console.log("ERROR : ",err);            
+                    } else {            
+                        getName = data 
+                    }
+                });
+                exampleEmb.setTitle('Hola, ¿ que tal '+ getName + '?');;
                 msg.channel.send(exampleEmb);
                 break;
             case prefix+"cerdo":
