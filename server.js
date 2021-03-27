@@ -50,19 +50,6 @@ client.on("message", msg => {
    
     //SQL FUNCTIONS
 
-    function sqlname(){
-        var getname = "SELECT name FROM users WHERE user = '"+user+"'";
-        var getName;
-        db.sqlselect(getname, function(err,data){
-            if (err) {
-                console.log("ERROR : ",err);            
-            } else {   
-                getName = data;
-                getName = getName.charAt(0).toUpperCase() + getName.slice(1);
-                console.log(getName);
-            }
-        });
-        }
 
     //FILTER VAR
 
@@ -107,7 +94,6 @@ client.on("message", msg => {
                     });
                 break;
             case prefix+"hola": 
-
                 var getname = "SELECT name FROM users WHERE user = '"+user+"'";
                 var getName;
                 db.sqlselect(getname, function(err,data){
@@ -122,7 +108,7 @@ client.on("message", msg => {
 
                 var delay = 50
 
-                sqlname();
+                //WAIT FOR SQL RESULT
 
                 setTimeout(()=>{  
                     if (getName == null | getName == undefined){
@@ -137,8 +123,6 @@ client.on("message", msg => {
                     }
                 }, delay);
 
-                
-
                 break;
             case prefix+"cerdo":
                 exampleEmb.setTitle('Cala can');
@@ -146,9 +130,43 @@ client.on("message", msg => {
                 break;
             //BC MSG
             case prefix+"botijo-chan":
+
+                //GET NAME BY MYSQL
+
+                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+                var getName;
+
+                db.sqlselect(getname, function(err,data){
+                    if (err) {
+                        console.log("ERROR : ",err);            
+                    } else {   
+                        getName = data;
+                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                        console.log(getName);
+                    }
+                });
+
+                var delay = 50
+
+                //WAIT FOR SQL RESULT
+
+                setTimeout(()=>{  
+                    if (getName == null | getName == undefined){
+                        delay = delay*2
+                        setTimeout(()=>{
+                            botijochanEmb.setTitle('¿Que necesitas '+getName+'-Kun?');
+                            msg.channel.send(botijochanEmb)
+                        },delay);
+                    } else {
+                        botijochanEmb.setTitle('¿Que necesitas '+getName+'-Kun?');
+                        msg.channel.send(botijochanEmb)
+                    }
+                }, delay);
+
+                //EMBED BC
+
                 botijochanEmb.fields = [];
                 botijochanEmb.image = []
-                botijochanEmb.setTitle('¿Que necesitas '+user+'-Kun?');
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setThumbnail(botijochanimg1);
                 botijochanEmb.setDescription('Aquí tienes mis comandos para cuando me necesites');
@@ -157,7 +175,7 @@ client.on("message", msg => {
                     { name: 'Si tienes sed', value: 'bc/awua', inline: true },
                     { name:'Test Amor', value:'bc/test', inline: true},
                 );
-                msg.channel.send(botijochanEmb)
+
                 break;
             case prefixbc+"test":
                 var porcentajecomp = Math.floor(Math.random() * 101);
