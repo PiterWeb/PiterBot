@@ -103,10 +103,11 @@ client.on("message", msg => {
                     }
                 });
 
-                setTimeout(()=>{
+                while(getName !== undefined){
                     exampleEmb.setTitle('Hola, ¿ que tal '+ getName + '?');
                     msg.channel.send(exampleEmb);
-                },100);
+                    getName = null
+                }
 
                 break;
             case prefix+"cerdo":
