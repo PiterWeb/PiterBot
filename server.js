@@ -216,13 +216,13 @@ client.on("message", msg => {
                         },delay);
                     } else {
                         if(porcentajecomp>=75){
-                            botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
+                            botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
                         } else if (porcentajecomp>=50){
-                            botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, llegarán a ser muy buenos amigos ');
+                            botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, llegarán a ser muy buenos amigos ');
                         } else if (porcentajecomp>=25) {
-                            botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, podrian llegar a ser amigos');
+                            botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, podrian llegar a ser amigos');
                         } else if (porcentajecomp<=25 ) {
-                            botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
+                            botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
                         }
         
                         msg.channel.send(botijochanEmb);
