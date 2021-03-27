@@ -104,10 +104,15 @@ client.on("message", msg => {
                     }
                 });
 
-                setTimeout(()=>{
-                    exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
-                    msg.channel.send(exampleEmb);
-                },50);
+                if (getName == null){
+                    setTimeout(()=>{
+                        exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                        msg.channel.send(exampleEmb);
+                    },50);
+                } else {
+                        exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                        msg.channel.send(exampleEmb);
+                }
 
                 break;
             case prefix+"cerdo":
