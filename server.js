@@ -106,7 +106,7 @@ client.on("message", msg => {
                 setTimeout(()=>{
                     exampleEmb.setTitle('Hola, ¿ que tal '+ getName + '?');
                     msg.channel.send(exampleEmb);
-                },500);
+                },100);
 
                 break;
             case prefix+"cerdo":
