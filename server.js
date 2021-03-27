@@ -104,7 +104,7 @@ client.on("message", msg => {
                 });
 
                 setTimeout(()=>{
-                    exampleEmb.setTitle('Hola, ¿ que tal '+ getname + '?');
+                    exampleEmb.setTitle('Hola, ¿ que tal '+ getName + '?');
                     msg.channel.send(exampleEmb);
                 },1000);
 
