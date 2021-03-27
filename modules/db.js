@@ -36,11 +36,11 @@ const con = mysql.createConnection({
         });
       }   
 
-      function waitforSQL(delay ,arg1 , arg2){
+      function waitforSQL(value ,delay ,arg1 , arg2){
       setTimeout(()=>{  
-        if (getName == null | getName == undefined){
+        if (value == null | value == undefined){
             setTimeout(()=>{
-                exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                exampleEmb.setTitle('Hola, ¿ que tal '+ value + ' ?');
                 msg.channel.send(exampleEmb);
             }, delay);
         } else {

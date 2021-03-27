@@ -104,11 +104,10 @@ client.on("message", msg => {
                 });
 
                 var delay = 50
-
                 var arg1 = exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
                 var arg2 = msg.channel.send(exampleEmb);
 
-                    db.waitforSQL(delay,arg1,arg2)
+                    db.waitforSQL(getName,delay,arg1,arg2)
 
                 break;
             case prefix+"cerdo":
