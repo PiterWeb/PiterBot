@@ -50,6 +50,19 @@ client.on("message", msg => {
    
     //SQL FUNCTIONS
 
+    function sqlname(){
+        var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+        var getName;
+        db.sqlselect(getname, function(err,data){
+            if (err) {
+                console.log("ERROR : ",err);            
+            } else {   
+                getName = data;
+                getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                console.log(getName);
+            }
+        });
+        }
 
     //FILTER VAR
 
@@ -94,19 +107,22 @@ client.on("message", msg => {
                     });
                 break;
             case prefix+"hola": 
+
                 var getname = "SELECT name FROM users WHERE user = '"+user+"'";
                 var getName;
                 db.sqlselect(getname, function(err,data){
                     if (err) {
                         console.log("ERROR : ",err);            
-                    } else {
-                        console.log(data);    
-                        getName = data 
+                    } else {   
+                        getName = data;
                         getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                        console.log(getName);
                     }
                 });
 
                 var delay = 50
+
+                sqlname();
 
                 setTimeout(()=>{  
                     if (getName == null | getName == undefined){
