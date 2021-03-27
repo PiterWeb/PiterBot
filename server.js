@@ -104,20 +104,15 @@ client.on("message", msg => {
                     }
                 });
 
-                switch(getName){
-                case null:
+                if(getName !== null || getName !== undefined){
                     for (var delay = 50; getName !== null; delay++ ) {
                     setTimeout(()=>{
                         exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
                         msg.channel.send(exampleEmb);
                     },delay);
-                    }
+                    }}
                     break;
-                default:
-                    exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
-                    msg.channel.send(exampleEmb);
-                    break;
-                }
+                
             case prefix+"cerdo":
                 exampleEmb.setTitle('Cala can');
                 msg.channel.send(exampleEmb);
