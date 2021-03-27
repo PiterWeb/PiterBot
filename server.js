@@ -48,8 +48,24 @@ client.on("message", msg => {
 
     //SQL VAR 
    
+    
+
     //SQL FUNCTIONS
 
+    //GET NAME
+
+    var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+    var getName;
+
+    db.sqlselect(getname, function(err,data){
+        if (err) {
+            console.log("ERROR : ",err);            
+        } else {   
+            getName = data;
+            getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+            console.log(getName);
+        }
+    });
 
     //FILTER VAR
 
@@ -94,21 +110,10 @@ client.on("message", msg => {
                     });
                 break;
             case prefix+"hola": 
-                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
-                var getName;
-                db.sqlselect(getname, function(err,data){
-                    if (err) {
-                        console.log("ERROR : ",err);            
-                    } else {   
-                        getName = data;
-                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
-                        console.log(getName);
-                    }
-                });
-
-                var delay = 50
 
                 //WAIT FOR SQL RESULT
+
+                var delay = 50
 
                 setTimeout(()=>{  
                     if (getName == null | getName == undefined){
@@ -131,24 +136,9 @@ client.on("message", msg => {
             //BC MSG
             case prefix+"bc":
 
-                //GET NAME BY MYSQL
-
-                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
-                var getName;
-
-                db.sqlselect(getname, function(err,data){
-                    if (err) {
-                        console.log("ERROR : ",err);            
-                    } else {   
-                        getName = data;
-                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
-                        console.log(getName);
-                    }
-                });
+                //WAIT FOR SQL RESULT
 
                 var delay = 50
-
-                //WAIT FOR SQL RESULT
 
                 setTimeout(()=>{  
                     if (getName == null | getName == undefined){
@@ -179,24 +169,9 @@ client.on("message", msg => {
                 break;
             case prefixbc+"test":
 
-                //GET NAME BY MYSQL
-
-                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
-                var getName;
-
-                db.sqlselect(getname, function(err,data){
-                    if (err) {
-                        console.log("ERROR : ",err);            
-                    } else {   
-                        getName = data;
-                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
-                        console.log(getName);
-                    }
-                });
+                //WAIT FOR SQL RESULT
 
                 var delay = 50
-
-                //WAIT FOR SQL RESULT
 
                 setTimeout(()=>{  
                     if (getName == null | getName == undefined){
@@ -211,7 +186,6 @@ client.on("message", msg => {
                             } else if (porcentajecomp<=25 ) {
                                 botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
                             }
-            
                             msg.channel.send(botijochanEmb);
                         },delay);
                     } else {
@@ -224,7 +198,6 @@ client.on("message", msg => {
                         } else if (porcentajecomp<=25 ) {
                             botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
                         }
-        
                         msg.channel.send(botijochanEmb);
                     }
                 }, delay);
