@@ -129,7 +129,7 @@ client.on("message", msg => {
                 msg.channel.send(exampleEmb);
                 break;
             //BC MSG
-            case prefix+"botijo-chan":
+            case prefix+"bc":
 
                 //GET NAME BY MYSQL
 
