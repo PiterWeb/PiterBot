@@ -110,15 +110,18 @@ client.on("message", msg => {
 
                 setTimeout(()=>{  
                     if (getName == null | getName == undefined){
+                        delay = delay*2
                         setTimeout(()=>{
                             exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
-                        }, delay);
+                            msg.channel.send(exampleEmb);
+                        },delay);
                     } else {
                         exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                        msg.channel.send(exampleEmb);
                     }
                 }, delay);
 
-                msg.channel.send(exampleEmb);
+                
 
                 break;
             case prefix+"cerdo":
