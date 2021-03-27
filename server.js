@@ -47,8 +47,6 @@ client.on("message", msg => {
     var botijochanimg2 = 'https://i.imgur.com/1zH8Mj5.jpg';
 
     //SQL VAR 
-   
-    
 
     //SQL FUNCTIONS
 
@@ -57,15 +55,18 @@ client.on("message", msg => {
     var getname = "SELECT name FROM users WHERE user = '"+user+"'";
     var getName;
 
+    function namesql(variable){
     db.sqlselect(getname, function(err,data){
         if (err) {
             console.log("ERROR : ",err);            
         } else {   
             getName = data;
             getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+            variable = getName
             console.log(getName);
         }
     });
+}
 
     //FILTER VAR
 
@@ -111,19 +112,21 @@ client.on("message", msg => {
                 break;
             case prefix+"hola": 
 
+            var nombre;
+                    namesql(nombre)
                 //WAIT FOR SQL RESULT
 
                 var delay = 50
 
                 setTimeout(()=>{  
-                    if (getName == null | getName == undefined){
+                    if (nombre == null | nombre == undefined){
                         delay = delay*2
                         setTimeout(()=>{
-                            exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                            exampleEmb.setTitle('Hola, ¿ que tal '+ nombre + ' ?');
                             msg.channel.send(exampleEmb);
                         },delay);
                     } else {
-                        exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                        exampleEmb.setTitle('Hola, ¿ que tal '+ nombre + ' ?');
                         msg.channel.send(exampleEmb);
                     }
                 }, delay);
