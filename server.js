@@ -103,14 +103,16 @@ client.on("message", msg => {
                         getName = getName.charAt(0).toUpperCase() + getName.slice(1);
                     }
                 });
-
-                if(getName !== null || getName !== undefined){
-                    for (var delay = 50; getName !== null; delay++ ) {
+                    for (var delay = 50; getName == undefined || getName == null; delay++ ); {
                     setTimeout(()=>{
-                        exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
-                        msg.channel.send(exampleEmb);
+                        if (getName == undefined || getName == null){
+                            return;
+                        } else {
+                            exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                            msg.channel.send(exampleEmb);
+                        }
                     },delay);
-                    }}
+                    }
                 break;
             case prefix+"cerdo":
                 exampleEmb.setTitle('Cala can');
