@@ -105,6 +105,7 @@ client.on("message", msg => {
                         getName = getName.charAt(0).toUpperCase() + getName.slice(1);
                     }
                 });
+                
                 var delay = 50
 
                 setTimeout(()=>{  
@@ -118,7 +119,7 @@ client.on("message", msg => {
                         msg.channel.send(exampleEmb);
                     }
                 }, delay);
-                
+
                 break;
             case prefix+"cerdo":
                 exampleEmb.setTitle('Cala can');
