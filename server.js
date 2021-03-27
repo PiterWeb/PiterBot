@@ -111,8 +111,7 @@ client.on("message", msg => {
                         msg.channel.send(exampleEmb);
                     },delay);
                     }}
-                    break;
-                
+                break;
             case prefix+"cerdo":
                 exampleEmb.setTitle('Cala can');
                 msg.channel.send(exampleEmb);
