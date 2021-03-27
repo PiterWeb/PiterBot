@@ -105,20 +105,20 @@ client.on("message", msg => {
                         getName = getName.charAt(0).toUpperCase() + getName.slice(1);
                     }
                 });
-                
+
                 var delay = 50
 
                 setTimeout(()=>{  
                     if (getName == null | getName == undefined){
                         setTimeout(()=>{
                             exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
-                             msg.channel.send(exampleEmb);
                         }, delay);
                     } else {
                         exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
-                        msg.channel.send(exampleEmb);
                     }
                 }, delay);
+
+                msg.channel.send(exampleEmb);
 
                 break;
             case prefix+"cerdo":
