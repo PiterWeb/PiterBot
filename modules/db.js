@@ -36,21 +36,7 @@ const con = mysql.createConnection({
         });
       }   
 
-      function waitforSQL(value ,delay ,arg1 , arg2){
-      setTimeout(()=>{  
-        if (value == null | value == undefined){
-            setTimeout(()=>{
-                arg1;
-                arg2;
-            }, delay);
-        } else {
-          arg1;
-          arg2;
-        }
-      }, delay);
-      }
-
-  module.exports = {sqlinsert , sqlselect , waitforSQL};
+  module.exports = {sqlinsert , sqlselect};
 
   
     // var sqlusertb = "CREATE TABLE users (name VARCHAR(255), messages VARCHAR(255))";
