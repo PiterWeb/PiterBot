@@ -178,23 +178,65 @@ client.on("message", msg => {
 
                 break;
             case prefixbc+"test":
+
+                //GET NAME BY MYSQL
+
+                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+                var getName;
+
+                db.sqlselect(getname, function(err,data){
+                    if (err) {
+                        console.log("ERROR : ",err);            
+                    } else {   
+                        getName = data;
+                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                        console.log(getName);
+                    }
+                });
+
+                var delay = 50
+
+                //WAIT FOR SQL RESULT
+
+                setTimeout(()=>{  
+                    if (getName == null | getName == undefined){
+                        delay = delay*2
+                        setTimeout(()=>{
+                            if(porcentajecomp>=75){
+                                botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
+                            } else if (porcentajecomp>=50){
+                                botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, llegarán a ser muy buenos amigos ');
+                            } else if (porcentajecomp>=25) {
+                                botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, podrian llegar a ser amigos');
+                            } else if (porcentajecomp<=25 ) {
+                                botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
+                            }
+            
+                            msg.channel.send(botijochanEmb);
+                        },delay);
+                    } else {
+                        if(porcentajecomp>=75){
+                            botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
+                        } else if (porcentajecomp>=50){
+                            botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, llegarán a ser muy buenos amigos ');
+                        } else if (porcentajecomp>=25) {
+                            botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, podrian llegar a ser amigos');
+                        } else if (porcentajecomp<=25 ) {
+                            botijochanEmb.setDescription(getName+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
+                        }
+        
+                        msg.channel.send(botijochanEmb);
+                    }
+                }, delay);
+
+                //EMBED BC
+
                 var porcentajecomp = Math.floor(Math.random() * 101);
                 botijochanEmb.fields = [];
                 botijochanEmb.image = []
                 botijochanEmb.setTitle('Test de Compatibilidad');
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setImage(botijochanimg2);
-                if(porcentajecomp>=75){
-                    botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
-                } else if (porcentajecomp>=50){
-                    botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, llegarán a ser muy buenos amigos ');
-                } else if (porcentajecomp>=25) {
-                    botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, podrian llegar a ser amigos');
-                } else if (porcentajecomp<=25 ) {
-                    botijochanEmb.setDescription(user+' tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
-                }
-
-                msg.channel.send(botijochanEmb);
                 break;
                 //ADMIN MSG
             case prefix+"link":
