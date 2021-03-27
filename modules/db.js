@@ -40,8 +40,8 @@ const con = mysql.createConnection({
       setTimeout(()=>{  
         if (value == null | value == undefined){
             setTimeout(()=>{
-                exampleEmb.setTitle('Hola, ¿ que tal '+ value + ' ?');
-                msg.channel.send(exampleEmb);
+                arg1;
+                arg2;
             }, delay);
         } else {
           arg1;
