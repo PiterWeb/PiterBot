@@ -107,9 +107,19 @@ client.on("message", msg => {
                 var delay = 50
 
                     setTimeout(()=>{  
+                            if (getName == null | getName == undefined){
+                                setTimeout(()=>{
+                                    exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                                    msg.channel.send(exampleEmb);
+                                }, delay);
+                            } else {
                             exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
                             msg.channel.send(exampleEmb);
+                            }
                     }, delay);
+
+
+
                 break;
             case prefix+"cerdo":
                 exampleEmb.setTitle('Cala can');
