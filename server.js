@@ -100,6 +100,7 @@ client.on("message", msg => {
                     } else {
                         console.log(data);    
                         getName = data 
+                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
                     }
                 });
 
