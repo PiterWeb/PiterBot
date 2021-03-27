@@ -102,8 +102,12 @@ client.on("message", msg => {
                         getName = data 
                     }
                 });
-                exampleEmb.setTitle('Hola, ¿ que tal '+ getName + '?');;
-                msg.channel.send(exampleEmb);
+
+                setTimeout(()=>{
+                    exampleEmb.setTitle('Hola, ¿ que tal '+ getname + '?');
+                    msg.channel.send(exampleEmb);
+                },1000);
+
                 break;
             case prefix+"cerdo":
                 exampleEmb.setTitle('Cala can');

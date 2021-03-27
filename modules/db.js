@@ -38,9 +38,7 @@ const con = mysql.createConnection({
 
   module.exports = {sqlinsert , sqlselect};
 
-       
-
-//       }
+  
     // var sqlusertb = "CREATE TABLE users (name VARCHAR(255), messages VARCHAR(255))";
 
     // con.query(sqlusertb, function (err, result) {
