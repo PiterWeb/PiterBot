@@ -36,7 +36,21 @@ const con = mysql.createConnection({
         });
       }   
 
-  module.exports = {sqlinsert , sqlselect};
+      function waitforSQL(delay ,arg1 , arg2){
+      setTimeout(()=>{  
+        if (getName == null | getName == undefined){
+            setTimeout(()=>{
+                exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                msg.channel.send(exampleEmb);
+            }, delay);
+        } else {
+          arg1;
+          arg2;
+        }
+      }, delay);
+      }
+
+  module.exports = {sqlinsert , sqlselect , waitforSQL};
 
   
     // var sqlusertb = "CREATE TABLE users (name VARCHAR(255), messages VARCHAR(255))";

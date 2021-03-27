@@ -47,7 +47,6 @@ client.on("message", msg => {
     var botijochanimg2 = 'https://i.imgur.com/1zH8Mj5.jpg';
 
     //SQL VAR 
-   
 
     //FILTER VAR
 
@@ -106,19 +105,10 @@ client.on("message", msg => {
 
                 var delay = 50
 
-                    setTimeout(()=>{  
-                            if (getName == null | getName == undefined){
-                                setTimeout(()=>{
-                                    exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
-                                    msg.channel.send(exampleEmb);
-                                }, delay);
-                            } else {
-                            exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
-                            msg.channel.send(exampleEmb);
-                            }
-                    }, delay);
+                var arg1 = exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
+                var arg2 = msg.channel.send(exampleEmb);
 
-
+                    db.waitforSQL(delay,arg1,arg2)
 
                 break;
             case prefix+"cerdo":
