@@ -110,7 +110,7 @@ client.on("message", msg => {
                     setTimeout(()=>{
                         exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
                         msg.channel.send(exampleEmb);
-                    },50);
+                    },delay);
                     }
                     break;
                 default:
