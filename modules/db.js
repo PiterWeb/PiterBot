@@ -11,7 +11,7 @@ const pool = mysql.createPool({
         callback(err, connection); 
   });
 
-//   pol.polnect(function(err) {
+//   con.connnect(function(err) {
 //     if (err) throw err;
 //     polsole.log("polnected!");
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
@@ -38,10 +38,10 @@ const pool = mysql.createPool({
   
     // var sqlusertb = "CREATE TABLE users (name VARCHAR(255), messages VARCHAR(255))";
 
-    // pol.query(sqlusertb, function (err, result) {
+    // con.query(sqlusertb, function (err, result) {
     //     if (err) throw err;
-    //     polsole.log("Table created");
-    //     pol.end();
+    //     conssole.log("Table created");
+    //     con.end();
     //   });
     
   // });
