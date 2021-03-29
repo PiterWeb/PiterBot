@@ -105,7 +105,6 @@ client.on("message", msg => {
                         getName = getName.charAt(0).toUpperCase() + getName.slice(1);
                         console.log(getName);
                     }
-                    con.end()
                 });
 
                 //WAIT FOR SQL RESULT
