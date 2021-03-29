@@ -7,16 +7,18 @@ const pool = mysql.createPool({
     database: process.env.DB,
   });
 
+  var getConnection = function(callback) {
   pool.getConnection(function(err, connection ) {
         callback(err, connection); 
   });
-
+  };
 //   con.connnect(function(err) {
 //     if (err) throw err;
 //     polsole.log("polnected!");
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
 
       function sqlinsert(task){
+        getConnection();
         pool.query(task, function (err, result) {
           if (err) return console.error(err.message);
           console.log(result);
@@ -24,6 +26,7 @@ const pool = mysql.createPool({
       } 
 
       function sqlselect(task, callback){
+        getConnection();
         pool.query(task, function (err, result , fields) {
           if (err) {
             return console.error(err.message);
