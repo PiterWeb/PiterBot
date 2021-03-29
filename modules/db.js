@@ -21,7 +21,6 @@ const con = mysql.createConnection({
         con.query(task, function (err, result) {
           if (err) return console.error(err.message);
           console.log(result);
-          con.end();
         });
       } 
 
@@ -32,7 +31,6 @@ const con = mysql.createConnection({
           } else {
             callback(null,result[0].name);
           }
-          con.end();
         });
       }   
 
@@ -48,3 +46,5 @@ const con = mysql.createConnection({
     //   });
     
   // });
+
+  con.end();
