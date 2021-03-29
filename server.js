@@ -99,7 +99,7 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
-                        console.log("ERROR : ",err);            
+                        return console.error(err.message);          
                     } else {   
                         getName = data;
                         getName = getName.charAt(0).toUpperCase() + getName.slice(1);
@@ -137,7 +137,7 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
-                        console.log("ERROR : ",err);            
+                        return console.error(err.message);           
                     } else {   
                         getName = data;
                         getName = getName.charAt(0).toUpperCase() + getName.slice(1);
@@ -183,7 +183,7 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
-                        console.log("ERROR : ",err);            
+                        return console.error(err.message);            
                     } else {   
                         getName = data;
                         getName = getName.charAt(0).toUpperCase() + getName.slice(1);

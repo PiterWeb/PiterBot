@@ -28,7 +28,7 @@ const con = mysql.createConnection({
       function sqlselect(task, callback){
         con.query(task, function (err, result , fields) {
           if (err) {
-            callback(err,null);
+            return console.error(err.message);
           } else {
             callback(null,result[0].name);
           }
