@@ -18,22 +18,22 @@ const pool = mysql.createPool({
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
 
       function sqlinsert(task){
-        getConnection();
-        pool.query(task, function (err, result) {
+        getConnection(pool.query(task, function (err, result) {
           if (err) return console.error(err.message);
           console.log(result);
-        });
+        }));
+        
       } 
 
       function sqlselect(task, callback){
-        getConnection();
-        pool.query(task, function (err, result , fields) {
+        getConnection(pool.query(task, function (err, result , fields) {
           if (err) {
             return console.error(err.message);
           } else {
             callback(null,result[0].name);
           }
-        });
+        }));
+        
       }   
 
   module.exports = {sqlinsert , sqlselect};
