@@ -1,31 +1,30 @@
 const mysql = require('mysql');
 
-const con = mysql.createConnection({
+const pool = mysql.createPool({
     host: process.env.HOST,
     user: process.env.USER,
     password: process.env.PSW,
     database: process.env.DB,
   });
 
-  con.connect(function(err) {
-    if (err) return console.error(err.message);
-    console.log("Connected!");
-      });
+  pool.getConnection(function(err, connection ) {
+        callback(err, connection); 
+  });
 
-//   con.connect(function(err) {
+//   pol.polnect(function(err) {
 //     if (err) throw err;
-//     console.log("Connected!");
+//     polsole.log("polnected!");
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
 
       function sqlinsert(task){
-        con.query(task, function (err, result) {
+        pool.query(task, function (err, result) {
           if (err) return console.error(err.message);
           console.log(result);
         });
       } 
 
       function sqlselect(task, callback){
-        con.query(task, function (err, result , fields) {
+        pool.query(task, function (err, result , fields) {
           if (err) {
             return console.error(err.message);
           } else {
@@ -39,10 +38,10 @@ const con = mysql.createConnection({
   
     // var sqlusertb = "CREATE TABLE users (name VARCHAR(255), messages VARCHAR(255))";
 
-    // con.query(sqlusertb, function (err, result) {
+    // pol.query(sqlusertb, function (err, result) {
     //     if (err) throw err;
-    //     console.log("Table created");
-    //     con.end();
+    //     polsole.log("Table created");
+    //     pol.end();
     //   });
     
   // });
