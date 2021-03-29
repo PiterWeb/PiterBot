@@ -50,23 +50,6 @@ client.on("message", msg => {
 
     //SQL FUNCTIONS
 
-    //GET NAME
-
-    var getname = "SELECT name FROM users WHERE user = '"+user+"'";
-    var getName;
-
-    var nombre = function namesql(){
-    db.sqlselect(getname, function(err,data){
-        if (err) {
-            console.log("ERROR : ",err);            
-        } else {   
-            getName = data;
-            getName = getName.charAt(0).toUpperCase() + getName.slice(1);
-            console.log(getName);
-        }
-    });
-}
-
     //FILTER VAR
 
     let filter = m => m.author.id === msg.author.id
@@ -111,7 +94,18 @@ client.on("message", msg => {
                 break;
             case prefix+"hola": 
 
-                nombre;
+                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+                var getName;
+            
+                db.sqlselect(getname, function(err,data){
+                    if (err) {
+                        console.log("ERROR : ",err);            
+                    } else {   
+                        getName = data;
+                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                        console.log(getName);
+                    }
+                });
 
                 //WAIT FOR SQL RESULT
 
@@ -138,7 +132,18 @@ client.on("message", msg => {
             //BC MSG
             case prefix+"bc":
 
-                nombre;
+                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+                var getName;
+            
+                db.sqlselect(getname, function(err,data){
+                    if (err) {
+                        console.log("ERROR : ",err);            
+                    } else {   
+                        getName = data;
+                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                        console.log(getName);
+                    }
+                });
 
                 //WAIT FOR SQL RESULT
 
@@ -173,7 +178,18 @@ client.on("message", msg => {
                 break;
             case prefixbc+"test":
 
-                nombre
+                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+                var getName;
+            
+                db.sqlselect(getname, function(err,data){
+                    if (err) {
+                        console.log("ERROR : ",err);            
+                    } else {   
+                        getName = data;
+                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                        console.log(getName);
+                    }
+                });
 
                 //WAIT FOR SQL RESULT
 
