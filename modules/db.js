@@ -1,38 +1,39 @@
 const mysql = require('mysql');
 
-const pool = mysql.createPool({
+const con = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,
     password: process.env.PSW,
     database: process.env.DB,
   });
 
-  var getConnection = function(callback) {
-  pool.getConnection(function(err, connection ) {
-        callback(err, connection); 
-  });
-  };
-//   con.connnect(function(err) {
+//   con.connect(function(err) {
 //     if (err) throw err;
-//     polsole.log("polnected!");
+//     console.log("Connected!");
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
 
       function sqlinsert(task){
-        getConnection(pool.query(task, function (err, result) {
+        con.connect(function(err) {
+          if (err) return console.error(err.message);
+          console.log("Connected!");
+          
+            });
+        con.query(task, function (err, result) {
           if (err) return console.error(err.message);
           console.log(result);
-        }));
-        
+          
+        });
       } 
 
       function sqlselect(task, callback){
-        getConnection(pool.query(task, function (err, result , fields) {
+        con.query(task, function (err, result , fields) {
           if (err) {
             return console.error(err.message);
           } else {
             callback(null,result[0].name);
           }
-        }));
+          
+        });
         
       }   
 
@@ -43,7 +44,7 @@ const pool = mysql.createPool({
 
     // con.query(sqlusertb, function (err, result) {
     //     if (err) throw err;
-    //     conssole.log("Table created");
+    //     console.log("Table created");
     //     con.end();
     //   });
     
