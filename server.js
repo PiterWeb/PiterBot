@@ -99,6 +99,7 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
+                        msg.channel.send("Aún no has definido el nombre a utilizar con p/name");
                         return console.error(err.message);          
                     } else {   
                         getName = data;
@@ -115,12 +116,8 @@ client.on("message", msg => {
                     if (getName == null | getName == undefined){
                         delay = delay*2
                         setTimeout(()=>{
-                            if (getName == null | getName == undefined){
-                                msg.channel.send("Aún no has definido el nombre a utilizar con p/name")
-                            }else{
                             exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
                             msg.channel.send(exampleEmb);
-                            }
                         },delay);
                     } else {
                         exampleEmb.setTitle('Hola, ¿ que tal '+ getName + ' ?');
@@ -141,6 +138,7 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
+                        msg.channel.send("Aún no has definido el nombre a utilizar con p/name");
                         return console.error(err.message);           
                     } else {   
                         getName = data;
@@ -157,12 +155,8 @@ client.on("message", msg => {
                     if (getName == null | getName == undefined){
                         delay = delay*2
                         setTimeout(()=>{
-                            if (getName == null | getName == undefined){
-                                msg.channel.send("Aún no has definido el nombre a utilizar con p/name")
-                            }else{
                             botijochanEmb.setTitle('¿Que necesitas '+getName+'-Kun?');
                             msg.channel.send(botijochanEmb)
-                            }
                         },delay);
                     } else {
                         botijochanEmb.setTitle('¿Que necesitas '+getName+'-Kun?');
@@ -191,6 +185,7 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
+                        msg.channel.send("Aún no has definido el nombre a utilizar con p/name");
                         return console.error(err.message);            
                     } else {   
                         getName = data;
@@ -207,9 +202,6 @@ client.on("message", msg => {
                     if (getName == null | getName == undefined){
                         delay = delay*2
                         setTimeout(()=>{
-                            if (getName == null | getName == undefined){
-                                msg.channel.send("Aún no has definido el nombre a utilizar con p/name")
-                            }else{
                             if(porcentajecomp>=75){
                                 botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, hacen muy buena pareja <3 ');
                             } else if (porcentajecomp>=50){
@@ -218,7 +210,7 @@ client.on("message", msg => {
                                 botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, podrian llegar a ser amigos');
                             } else if (porcentajecomp<=25 ) {
                                 botijochanEmb.setDescription(getName+'-Kun tienes un '+porcentajecomp+'% de compatibilidad con Botijo-Chan, puede que no llegen a ser amigos');
-                            }}
+                            }
                             msg.channel.send(botijochanEmb);
                         },delay);
                     } else {
