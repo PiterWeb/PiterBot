@@ -23,7 +23,12 @@ const con = mysql.createConnection({
 
       function sqlinsert(task){
         con.query(task, function (err, result) {
-          if (err) return console.error(err.message);
+          if (err){ 
+            setTimeout(() => {
+            sqlinsert(task)
+            },1000);
+            return console.error(err.message);
+          }
           console.log(result);
           
         });
@@ -31,8 +36,10 @@ const con = mysql.createConnection({
 
       function sqlselect(task, callback){
         con.query(task, function (err, result , fields) {
-          if (err) {
-            return console.error(err.message);
+          if (err){ 
+            setTimeout(() => {
+            sqlselect(task)
+            },1000);
           } else {
             callback(null,result[0].name);
           }
