@@ -12,20 +12,44 @@ const con = mysql.createConnection({
 //     console.log("Connected!");
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
 
+
+
       function sqlinsert(task){
         con.connect(function(err) {
-          if (err) return console.error(err.message);
+          if (err){
+            setTimeout(() => {
+              con.connect
+            },1000);
+            return console.error(err.message);
+          } 
           console.log("Connected!");
-          
-            });
+        });
+
         con.query(task, function (err, result) {
           if (err) return console.error(err.message);
           console.log(result);
           
         });
+
+        con.end(function(err) {
+          if (err) {
+            return console.error(err.message);
+          }
+          console.log('Close the database connection.');
+        });
       } 
 
       function sqlselect(task, callback){
+        con.connect(function(err) {
+          if (err){
+            setTimeout(() => {
+              con.connect
+            },1000);
+            return console.error(err.message);
+          } 
+          console.log("Connected!");
+        });
+
         con.query(task, function (err, result , fields) {
           if (err) {
             return console.error(err.message);
@@ -34,7 +58,13 @@ const con = mysql.createConnection({
           }
           
         });
-        
+
+        con.end(function(err) {
+          if (err) {
+            return console.error(err.message);
+          }
+          console.log('Close the database connection.');
+        });
       }   
 
   module.exports = {sqlinsert , sqlselect};
