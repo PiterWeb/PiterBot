@@ -99,7 +99,6 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
-                        msg.channel.send("Aún no has definido el nombre a utilizar con p/name");
                         return console.error(err.message);          
                     } else {   
                         getName = data;
@@ -138,7 +137,6 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
-                        msg.channel.send("Aún no has definido el nombre a utilizar con p/name");
                         return console.error(err.message);           
                     } else {   
                         getName = data;
@@ -185,7 +183,6 @@ client.on("message", msg => {
             
                 db.sqlselect(getname, function(err,data){
                     if (err) {
-                        msg.channel.send("Aún no has definido el nombre a utilizar con p/name");
                         return console.error(err.message);            
                     } else {   
                         getName = data;
