@@ -7,20 +7,18 @@ const con = mysql.createConnection({
     database: process.env.DB,
   });
 
-//   con.connect(function(err) {
-//     if (err) throw err;
-//     console.log("Connected!");
+
 //         var sqluserins = "INSERT INTO users (name) VALUES ('PiterZ')";
 
-    con.connect(function(err) {
-      if (err){
-        setTimeout(() => {
-          con.connect
-        },1000);
-        return console.error(err.message);
-      } 
-      console.log("Connected!");
-    });
+    // con.connect(function(err) {
+    //   if (err){
+    //     setTimeout(() => {
+    //       con.connect
+    //     },1000);
+    //     return console.error(err.message);
+    //   } 
+    //   console.log("Connected!");
+    // });
 
 
       function sqlinsert(task){
