@@ -279,6 +279,80 @@ client.on("message", msg => {
 
                 msg.react('💧');
                 break;
+            case prefixbc+'hola':
+                var opciones = Math.floor(Math.random() * 4);
+
+                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+                var getName;
+            
+                db.sqlselect(getname, function(err,data){
+                    if (err) {
+                        return console.error(err.message);           
+                    } else {   
+                        getName = data;
+                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                        console.log(getName);
+                    }
+                });
+
+                //WAIT FOR SQL RESULT
+
+                var delay = 50
+
+                setTimeout(()=>{  
+                    if (getName == null | getName == undefined){
+                        delay = delay*2
+                        setTimeout(()=>{
+                            switch(opciones){
+                                case 1:
+                                botijochanEmb.setTitle('Hola wuapo');
+                                msg.react('💕');
+                                msg.channel.send(botijochanEmb)
+                                break;
+                                case 2:
+                                botijochanEmb.setTitle('No tengo ganas de hablar')
+                                msg.react('😡');
+                                msg.channel.send(botijochanEmb)
+                                break;
+                                default:
+                                botijochanEmb.setTitle('... Hola' +getName+ ' ,que tal te encuentras?')
+                                msg.react('😳');
+                                msg.react('👉');
+                                msg.react('👈');
+                                msg.channel.send(botijochanEmb)
+                                break;
+                                }
+                        },delay);
+                    } else {
+                        switch(opciones){
+                            case 1:
+                            botijochanEmb.setTitle('Hola wuapo');
+                            msg.react('💕');
+                            msg.channel.send(botijochanEmb)
+                            break;
+                            case 2:
+                            botijochanEmb.setTitle('No tengo ganas de hablar')
+                            msg.react('😡');
+                            msg.channel.send(botijochanEmb)
+                            break;
+                            default:
+                            botijochanEmb.setTitle('... Hola' +getName+ ' ,que tal te encuentras?')
+                            msg.react('😳');
+                            msg.react('👉');
+                            msg.react('👈');
+                            msg.channel.send(botijochanEmb)
+                            break;
+                            }
+                    }
+                }, delay);
+
+                
+
+                botijochanEmb.fields = [];
+                botijochanEmb.image = []
+                botijochanEmb.setAuthor(botijochanname);
+                botijochanEmb.setImage(botijochanimg2);
+                break;
                 //ADMIN MSG
             case prefix+"link":
                 var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
