@@ -337,9 +337,9 @@ client.on("message", msg => {
                             break;
                             default:
                             botijochanEmb.setTitle('... Hola' +getName+ ' ,que tal te encuentras? 👉 👈 😳')
-                            msg.react('😳');
                             msg.react('👉');
                             msg.react('👈');
+                            msg.react('😳');
                             msg.channel.send(botijochanEmb)
                             break;
                             }
