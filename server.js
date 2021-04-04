@@ -259,11 +259,11 @@ client.on("message", msg => {
                     if (getName == null | getName == undefined){
                         delay = delay*2
                         setTimeout(()=>{
-                            botijochanEmb.setDescription('Puedes beber de mi coleta' +getName+'-Kun');
+                            botijochanEmb.setDescription('Puedes beber de mi coleta ' +getName+'-Kun');
                             msg.channel.send(botijochanEmb)
                         },delay);
                     } else {
-                        botijochanEmb.setDescription('Puedes beber de mi coleta' +getName+'-Kun');
+                        botijochanEmb.setDescription('Puedes beber de mi coleta ' +getName+'-Kun');
                         msg.channel.send(botijochanEmb)
                     }
                 }, delay);
