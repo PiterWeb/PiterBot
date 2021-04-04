@@ -315,7 +315,7 @@ client.on("message", msg => {
                                 msg.channel.send(botijochanEmb)
                                 break;
                                 default:
-                                botijochanEmb.setTitle('... Hola' +getName+ ' ,que tal te encuentras? '+'👉 👈'+' '+'😳')
+                                botijochanEmb.setTitle('... Hola ' +getName+ ' ,que tal te encuentras? '+'👉 👈'+' '+'😳')
                                 msg.react('👉');
                                 msg.react('👈');
                                 msg.react('😳');
@@ -336,7 +336,7 @@ client.on("message", msg => {
                             msg.channel.send(botijochanEmb)
                             break;
                             default:
-                            botijochanEmb.setTitle('... Hola' +getName+ ' ,que tal te encuentras? '+'👉 👈'+' '+'😳')
+                            botijochanEmb.setTitle('... Hola ' +getName+ ' ,que tal te encuentras? '+'👉 👈'+' '+'😳')
                             msg.react('👉');
                             msg.react('👈');
                             msg.react('😳');
