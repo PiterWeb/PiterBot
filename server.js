@@ -235,6 +235,50 @@ client.on("message", msg => {
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setImage(botijochanimg2);
                 break;
+
+            case prefixbc + awua :
+                
+                var getname = "SELECT name FROM users WHERE user = '"+user+"'";
+                var getName;
+            
+                db.sqlselect(getname, function(err,data){
+                    if (err) {
+                        return console.error(err.message);           
+                    } else {   
+                        getName = data;
+                        getName = getName.charAt(0).toUpperCase() + getName.slice(1);
+                        console.log(getName);
+                    }
+                });
+
+                //WAIT FOR SQL RESULT
+
+                var delay = 50
+
+                setTimeout(()=>{  
+                    if (getName == null | getName == undefined){
+                        delay = delay*2
+                        setTimeout(()=>{
+                            botijochanEmb.setDescription('Puedes beber de mi coleta' +getName+'-Kun');
+                            msg.channel.send(botijochanEmb)
+                        },delay);
+                    } else {
+                        botijochanEmb.setDescription('Puedes beber de mi coleta' +getName+'-Kun');
+                        msg.channel.send(botijochanEmb)
+                    }
+                }, delay);
+
+                //EMBED BC
+
+                botijochanEmb.fields = [];
+                botijochanEmb.image = []
+                botijochanEmb.setTitle('¿Quieres Awua?');
+                botijochanEmb.setAuthor(botijochanname);
+                botijochanEmb.setImage(botijochanimg2);
+                //REACT TO MESSAGE
+                
+                message.react('💧');
+                break;
                 //ADMIN MSG
             case prefix+"link":
                 var link = "https://discord.com/oauth2/authorize?client_id=818494330728611900&scope=bot&permissions=2147483647"
