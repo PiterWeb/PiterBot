@@ -10,6 +10,7 @@ var prefixbc = "bc/"
 client.on("ready", async () => {
     console.log("Bot Listo")
     client.user.setStatus('Jugando a comunismo');
+
 });
 
 //EMBEDS//
@@ -32,6 +33,24 @@ const botijochanEmb = new Discord.MessageEmbed()
     .setColor('#BB861D')
 
 //BOT//
+
+const clientstate = require('discord-rich-presence')('180984871685062656');
+ 
+clientstate.updatePresence({
+    state: "Partida",
+  details: "Instaurar Comunismo",
+  startTimestamp: Date.now(),
+  endTimestamp: Date.now() + 1337,
+  partyId: "ae488379-351d-4a4f-ad32-2b9b01c91657", 
+  partySize: 1,
+  partyMax: 1,
+  joinSecret: "MTI4NzM0OjFpMmhuZToxMjMxMjM= ",
+  largeImageKey: './logox4.png',
+  smallImageKey: './logox4.png',
+  instance: true,
+  
+});
+
 
 client.on("message", msg => {
 
