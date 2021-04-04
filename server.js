@@ -326,17 +326,17 @@ client.on("message", msg => {
                     } else {
                         switch(opciones){
                             case 1:
-                            botijochanEmb.setTitle('Hola wuapo');
+                            botijochanEmb.setTitle('Hola wuapo 💕');
                             msg.react('💕');
                             msg.channel.send(botijochanEmb)
                             break;
                             case 2:
-                            botijochanEmb.setTitle('No tengo ganas de hablar')
+                            botijochanEmb.setTitle('No tengo ganas de hablar 😡')
                             msg.react('😡');
                             msg.channel.send(botijochanEmb)
                             break;
                             default:
-                            botijochanEmb.setTitle('... Hola' +getName+ ' ,que tal te encuentras?')
+                            botijochanEmb.setTitle('... Hola' +getName+ ' ,que tal te encuentras? 👉 👈 😳')
                             msg.react('😳');
                             msg.react('👉');
                             msg.react('👈');
