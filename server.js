@@ -46,9 +46,7 @@ clientstate.updatePresence({
   partyMax: 1,
   joinSecret: "MTI4NzM0OjFpMmhuZToxMjMxMjM= ",
   largeImageKey: './logox4.png',
-  smallImageKey: './logox4.png',
-  instance: true,
-  
+  smallImageKey: './logox4.png', 
 });
 
 
