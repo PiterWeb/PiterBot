@@ -236,7 +236,7 @@ client.on("message", msg => {
                 botijochanEmb.setImage(botijochanimg2);
                 break;
 
-            case prefixbc + awua :
+            case prefixbc +'awua' :
                 
                 var getname = "SELECT name FROM users WHERE user = '"+user+"'";
                 var getName;
@@ -276,7 +276,7 @@ client.on("message", msg => {
                 botijochanEmb.setAuthor(botijochanname);
                 botijochanEmb.setImage(botijochanimg2);
                 //REACT TO MESSAGE
-                
+
                 message.react('💧');
                 break;
                 //ADMIN MSG
