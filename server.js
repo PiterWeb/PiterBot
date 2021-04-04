@@ -280,7 +280,7 @@ client.on("message", msg => {
                 msg.react('💧');
                 break;
             case prefixbc+'hola':
-                var opciones = Math.floor(Math.random() * 4);
+                var opciones = Math.floor(Math.random() * 3);
 
                 var getname = "SELECT name FROM users WHERE user = '"+user+"'";
                 var getName;
