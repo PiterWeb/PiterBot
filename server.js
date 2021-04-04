@@ -277,7 +277,7 @@ client.on("message", msg => {
                 botijochanEmb.setImage(botijochanimg2);
                 //REACT TO MESSAGE
 
-                message.react('💧');
+                msg.react('💧');
                 break;
                 //ADMIN MSG
             case prefix+"link":
