@@ -63,7 +63,7 @@ client.on("message", msg => {
     } else if (msg.author == 551114700474286101 ){  
     //PROBABILITY WITH USER MSG
         var numero = 1;
-        var elegido = Math.floor(Math.random() * 101);
+        var elegido = Math.floor(Math.random() * 99);
         if(numero == elegido) {
             msg.reply("Calla tonto");
         }
@@ -95,6 +95,8 @@ client.on("message", msg => {
                     });
                 break;
             case prefix+"hola": 
+
+                exampleEmb.setDescription = []
 
                 var getname = "SELECT name FROM users WHERE user = '"+user+"'";
                 var getName;
